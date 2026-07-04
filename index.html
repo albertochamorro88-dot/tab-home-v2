@@ -177,8 +177,9 @@
   .tools{margin-top:clamp(40px,5vw,70px);display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line-d);border:1px solid var(--line-d)}
   .tool{background:var(--black);padding:26px 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:110px;transition:background .25s}
   .tool:hover{background:#101117}
-  .tool .mk{font-weight:900;font-size:19px;letter-spacing:-.01em;color:var(--gray)}
-  .tool:hover .mk{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .tool img{height:34px;width:auto;max-width:120px;object-fit:contain;filter:grayscale(1) brightness(1.25) opacity(.8);transition:filter .3s,transform .3s}
+  .tool:hover img{filter:none;transform:scale(1.08)}
+  .tool .nm{font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray)}
   .tool .cat{font-family:'Roboto Mono',monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut-d)}
   .tools-note{margin-top:20px;font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut-d)}
   .tools-note b{color:var(--blue)}
@@ -525,18 +526,18 @@
     <h2 class="rv">Herramientas de grado <span class="br">[enterprise]</span>. Nada de juguetes.</h2>
     <p class="sub rv rv2">Construimos sobre la infraestructura que usan los bancos y las farmacéuticas — porque tus sistemas van a producción, no a una demo.</p>
     <div class="tools rv rv3">
-      <div class="tool"><div class="mk">AWS</div><div class="cat mono">Cloud</div></div>
-      <div class="tool"><div class="mk">Azure</div><div class="cat mono">Cloud</div></div>
-      <div class="tool"><div class="mk">Google Cloud</div><div class="cat mono">Cloud</div></div>
-      <div class="tool"><div class="mk">OpenAI</div><div class="cat mono">Modelos IA</div></div>
-      <div class="tool"><div class="mk">Anthropic</div><div class="cat mono">Modelos IA</div></div>
-      <div class="tool"><div class="mk">Gemini</div><div class="cat mono">Modelos IA</div></div>
-      <div class="tool"><div class="mk">ElevenLabs</div><div class="cat mono">Voz IA</div></div>
-      <div class="tool"><div class="mk">LangChain</div><div class="cat mono">Agentes</div></div>
-      <div class="tool"><div class="mk">Kubernetes</div><div class="cat mono">Infraestructura</div></div>
-      <div class="tool"><div class="mk">PostgreSQL</div><div class="cat mono">Datos</div></div>
-      <div class="tool"><div class="mk">Snowflake</div><div class="cat mono">Data warehouse</div></div>
-      <div class="tool"><div class="mk">Terraform</div><div class="cat mono">IaC</div></div>
+      <div class="tool"><img src="assets/logos/aws.svg" alt="AWS" loading="lazy"><div class="nm mono">AWS</div></div>
+      <div class="tool"><img src="assets/logos/azure.svg" alt="Azure" loading="lazy"><div class="nm mono">Azure</div></div>
+      <div class="tool"><img src="assets/logos/googlecloud.svg" alt="Google Cloud" loading="lazy"><div class="nm mono">Google Cloud</div></div>
+      <div class="tool"><img src="assets/logos/openai.svg" alt="OpenAI" loading="lazy"><div class="nm mono">OpenAI</div></div>
+      <div class="tool"><img src="assets/logos/anthropic.svg" alt="Anthropic" loading="lazy"><div class="nm mono">Anthropic</div></div>
+      <div class="tool"><img src="assets/logos/gemini.svg" alt="Gemini" loading="lazy"><div class="nm mono">Gemini</div></div>
+      <div class="tool"><img src="assets/logos/elevenlabs.svg" alt="ElevenLabs" loading="lazy"><div class="nm mono">ElevenLabs</div></div>
+      <div class="tool"><img src="assets/logos/langchain.svg" alt="LangChain" loading="lazy"><div class="nm mono">LangChain</div></div>
+      <div class="tool"><img src="assets/logos/kubernetes.svg" alt="Kubernetes" loading="lazy"><div class="nm mono">Kubernetes</div></div>
+      <div class="tool"><img src="assets/logos/postgresql.svg" alt="PostgreSQL" loading="lazy"><div class="nm mono">PostgreSQL</div></div>
+      <div class="tool"><img src="assets/logos/snowflake.svg" alt="Snowflake" loading="lazy"><div class="nm mono">Snowflake</div></div>
+      <div class="tool"><img src="assets/logos/terraform.svg" alt="Terraform" loading="lazy"><div class="nm mono">Terraform</div></div>
     </div>
     <div class="tools-note mono rv">+ integraciones con <b>Salesforce, SAP, Stripe, HubSpot</b> y tu stack actual · Seguridad y cumplimiento <b>GDPR / AI Act</b> en cada capa</div>
   </div>
