@@ -95,6 +95,15 @@
   .ticker span i{color:var(--blue);font-style:normal;}
   @keyframes tick{to{transform:translateX(-50%);}}
 
+
+  /* ═══ CLIENTES ═══ */
+  .clients{border-bottom:1px solid var(--line-d);padding:30px 0;background:var(--black)}
+  .clients .cap{font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut-d);text-align:center;margin-bottom:22px}
+  .clients .row{display:flex;justify-content:center;align-items:center;gap:clamp(24px,4vw,56px);flex-wrap:wrap}
+  .clients .cl{font-weight:800;font-size:clamp(14px,1.4vw,19px);letter-spacing:.04em;color:#6E7080;text-transform:uppercase;white-space:nowrap;transition:color .3s}
+  .clients .cl:hover{color:#fff}
+  .clients .cl i{font-style:normal;color:var(--blue);font-weight:400;margin:0 2px}
+
   /* ═══ CREAM SECTION ═══ */
   .cream{background:var(--cream);color:var(--ink);position:relative;padding:clamp(80px,10vw,150px) 0;}
   .cream .grid-lines i{border-right:1px solid rgba(11,11,15,.06);}
@@ -252,6 +261,23 @@
 <div class="ticker" aria-hidden="true">
   <div class="ticker-inner" id="tick">
     <span>SANCIONES HASTA <b>35.000.000 €</b></span><span>O EL <b>7%</b> DE LA FACTURACIÓN GLOBAL</span><span>ART. 4 <b>VENCIDO</b> DESDE FEB 2025</span><span>ALTO RIESGO · <i>AGO 2026</i></span><span>FORMACIÓN EN IA <i>OBLIGATORIA</i></span><span>¿TU EMPRESA CUMPLE?</span>
+  </div>
+</div>
+
+
+<!-- ═══════════ CLIENTES ═══════════ -->
+<div class="clients">
+  <div class="wrap">
+    <div class="cap mono">— Hemos construido para —</div>
+    <div class="row">
+      <span class="cl">Santander</span>
+      <span class="cl">Audi España</span>
+      <span class="cl">Fuertafit</span>
+      <span class="cl">Private Equity</span>
+      <span class="cl">Jairo Fitness</span>
+      <span class="cl">Sangi Footwear</span>
+      <span class="cl">Bidfuse</span>
+    </div>
   </div>
 </div>
 
