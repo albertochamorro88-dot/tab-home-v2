@@ -108,9 +108,12 @@
   .clients .cap{font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gray);text-align:center;margin-bottom:28px}
   .clients .cap b{color:#fff}
   .clients .row{display:flex;justify-content:center;align-items:center;gap:clamp(18px,3vw,44px);flex-wrap:wrap;row-gap:18px}
-  .clients .cl{font-weight:900;font-size:clamp(17px,1.9vw,26px);letter-spacing:.02em;color:#C9CBD8;text-transform:uppercase;white-space:nowrap;transition:all .3s;position:relative;padding:4px 0}
-  .clients .cl:hover{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;transform:translateY(-2px)}
-  .clients .sep{width:5px;height:5px;border-radius:50%;background:var(--blue);opacity:.6;flex-shrink:0}
+  .clients .cl{font-weight:900;font-size:clamp(15px,1.6vw,21px);letter-spacing:.03em;color:#C9CBD8;text-transform:uppercase;white-space:nowrap;transition:all .3s;padding:4px 0}
+  .clients .cl:hover{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .clients img.clg{height:32px;width:auto;max-width:150px;object-fit:contain;display:block;
+    filter:brightness(0) invert(1);opacity:.75;transition:filter .3s,opacity .3s,transform .3s}
+  .clients img.clg:hover{filter:none;opacity:1;transform:translateY(-2px)}
+  .clients img.clg.tall{height:44px}
 
   /* ═══ CREAM SECTION ═══ */
   .cream{background:var(--cream);color:var(--ink);position:relative;padding:clamp(80px,10vw,150px) 0;}
@@ -278,13 +281,13 @@
   <div class="wrap">
     <div class="cap mono">— Hemos construido sistemas para <b>empresas como la tuya</b> —</div>
     <div class="row">
-      <span class="cl">Santander</span><span class="sep"></span>
-      <span class="cl">Audi España</span><span class="sep"></span>
-      <span class="cl">Fuertafit</span><span class="sep"></span>
-      <span class="cl">Private Equity</span><span class="sep"></span>
-      <span class="cl">Jairo Fitness</span><span class="sep"></span>
-      <span class="cl">Sangi Footwear</span><span class="sep"></span>
-      <span class="cl">Bidfuse</span>
+      <img class="clg" src="../assets/clients/santander.svg" alt="Santander" loading="lazy">
+      <img class="clg" src="../assets/clients/audi.svg" alt="Audi España" loading="lazy">
+      <img class="clg" src="../assets/clients/fuertafit.svg" alt="Fuertafit" loading="lazy">
+      <span class="cl" title="Cliente confidencial">Private Equity</span>
+      <img class="clg" src="../assets/clients/jairo.png" alt="Jairo Fitness" loading="lazy">
+      <img class="clg tall" src="../assets/clients/sangi.png" alt="Sangi Footwear" loading="lazy">
+      <img class="clg tall" src="../assets/clients/bidfuse.png" alt="Bidfuse" loading="lazy">
     </div>
   </div>
 </div>
