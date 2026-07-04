@@ -127,9 +127,13 @@
   .projs{margin-top:clamp(40px,5vw,70px);display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-d);border:1px solid var(--line-d)}
   .pj{background:var(--black);padding:32px 30px 36px;position:relative;overflow:hidden;transition:background .3s}
   .pj:hover{background:#101117}
+  .pj .pjph{margin:-32px -30px 22px;height:190px;background-size:cover;background-position:center;border-bottom:1px solid var(--line-d);transition:transform .5s cubic-bezier(.2,.6,.2,1);transform-origin:center}
+  .pj{overflow:hidden}
+  .pj:hover .pjph{transform:scale(1.04)}
+  .pj .go{z-index:3}
   .pj .cat{font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut-d)}
   .pj h3{font-weight:900;font-size:22px;letter-spacing:-.015em;text-transform:uppercase;margin-top:14px;line-height:1.1}
-  .pj p{font-size:14px;line-height:1.55;color:var(--mut-d);margin-top:12px;min-height:66px}
+  .pj p{font-size:14px;line-height:1.55;color:var(--mut-d);margin-top:12px}
   .pj .kpis{display:flex;gap:22px;margin-top:22px;padding-top:20px;border-top:1px solid var(--line-d)}
   .pj .kpi .v{font-weight:900;font-size:26px;letter-spacing:-.02em;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
   .pj .kpi .l{font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut-d);margin-top:5px}
@@ -450,37 +454,37 @@
     <p class="sub rv rv2">16 casos publicados. Estos son algunos — cada uno con métricas verificables, no promesas.</p>
     <div class="projs rv rv3">
       <a class="pj" href="https://theaibusiness.com/es/case-studies/entidad-bancaria-europa">
-        <div class="go">↗</div><div class="cat">Banca · Automatización</div>
+        <div class="go">↗</div><div class="pjph" style="background-image:url('assets/img/proyecto-banca.jpg')"></div><div class="cat">Banca · Automatización</div>
         <h3>Entidad bancaria europea</h3>
         <p>Automatización de informes regulatorios y conciliación con precisión de cumplimiento auditable.</p>
         <div class="kpis"><div class="kpi"><div class="v">92%</div><div class="l">informes automatizados</div></div><div class="kpi"><div class="v">99,8%</div><div class="l">precisión cumplimiento</div></div></div>
       </a>
       <a class="pj" href="https://theaibusiness.com/es/case-studies/autointel">
-        <div class="go">↗</div><div class="cat">Automoción · Inteligencia operacional</div>
+        <div class="go">↗</div><div class="pjph" style="background-image:url('assets/img/proyecto-autointel.jpg')"></div><div class="cat">Automoción · Inteligencia operacional</div>
         <h3>AutoIntel</h3>
         <p>Pricing predictivo y monitorización de oportunidades 24/7 para optimizar inventario y márgenes.</p>
         <div class="kpis"><div class="kpi"><div class="v">2x</div><div class="l">entrega más rápida</div></div><div class="kpi"><div class="v">4x</div><div class="l">capacidad de análisis</div></div></div>
       </a>
       <a class="pj" href="https://theaibusiness.com/es/case-studies/fund-os">
-        <div class="go">↗</div><div class="cat">Inversión · Software a medida</div>
+        <div class="go">↗</div><div class="pjph" style="background-image:url('assets/img/proyecto-fundos.jpg')"></div><div class="cat">Inversión · Software a medida</div>
         <h3>Fund OS</h3>
         <p>Sistema operativo de fondo: cierre, conciliación y reporting inversor en una sola capa inteligente.</p>
         <div class="kpis"><div class="kpi"><div class="v">12 días</div><div class="l">cierre más rápido</div></div><div class="kpi"><div class="v">-95%</div><div class="l">tiempo de conciliación</div></div></div>
       </a>
       <a class="pj" href="https://theaibusiness.com/es/case-studies/dermai">
-        <div class="go">↗</div><div class="cat">Salud · Producto IA</div>
+        <div class="go">↗</div><div class="pjph" style="background-image:url('assets/img/proyecto-dermai.jpg')"></div><div class="cat">Salud · Producto IA</div>
         <h3>DermAI</h3>
         <p>Diagnóstico dermatológico asistido por IA con supervisión clínica — conforme al AI Act desde el diseño.</p>
         <div class="kpis"><div class="kpi"><div class="v">45m→2m</div><div class="l">por evaluación</div></div><div class="kpi"><div class="v">10K+</div><div class="l">casos/mes</div></div></div>
       </a>
       <a class="pj" href="https://theaibusiness.com/es/case-studies/plataforma-ecom">
-        <div class="go">↗</div><div class="cat">Ecommerce · Automatización</div>
+        <div class="go">↗</div><div class="pjph" style="background-image:url('assets/img/proyecto-ecom.jpg')"></div><div class="cat">Ecommerce · Automatización</div>
         <h3>Plataforma Ecom</h3>
         <p>Contenido, pricing y operaciones automatizadas para escalar catálogo sin escalar plantilla.</p>
         <div class="kpis"><div class="kpi"><div class="v">4.000</div><div class="l">piezas/mes generadas</div></div><div class="kpi"><div class="v">+380%</div><div class="l">ROI contenido</div></div></div>
       </a>
       <a class="pj" href="https://theaibusiness.com/es/case-studies/fuertafit">
-        <div class="go">↗</div><div class="cat">Fitness · Revenue Intelligence</div>
+        <div class="go">↗</div><div class="pjph" style="background-image:url('assets/img/proyecto-fuertafit.jpg')"></div><div class="cat">Fitness · Revenue Intelligence</div>
         <h3>Fuertafit</h3>
         <p>Scoring de leads y automatización de ventas integrada en el CRM para priorizar lo que cierra.</p>
         <div class="kpis"><div class="kpi"><div class="v">+35%</div><div class="l">conversión</div></div><div class="kpi"><div class="v">-18%</div><div class="l">churn</div></div></div>
