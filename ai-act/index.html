@@ -96,6 +96,13 @@
   @keyframes tick{to{transform:translateX(-50%);}}
 
 
+
+  .hero-img{position:absolute;top:0;right:0;bottom:0;width:46%;background-size:cover;background-position:center;opacity:.55;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 45%);mask-image:linear-gradient(90deg,transparent,#000 45%)}
+  @media(max-width:900px){.hero-img{width:100%;opacity:.22;-webkit-mask-image:none;mask-image:none}}
+  .dcard .dimg{height:150px;background-size:cover;background-position:center;margin:16px 0 4px;border:1px solid var(--line-l)}
+  .vs-banner{width:100%;display:block;border:1px solid var(--line-d);margin-top:34px}
+
   /* ═══ CLIENTES ═══ */
   .clients{border-bottom:1px solid var(--line-d);padding:30px 0;background:var(--black)}
   .clients .cap{font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut-d);text-align:center;margin-bottom:22px}
@@ -234,7 +241,7 @@
 <!-- ═══════════ HERO ═══════════ -->
 <header class="hero">
   <div class="grid-lines"><i></i><i></i><i></i><i></i></div>
-  <div class="hero-glow b"></div><div class="hero-glow r"></div>
+  <div class="hero-img" style="background-image:url('../assets/img/aiact-hero.jpg')"></div><div class="hero-glow b"></div><div class="hero-glow r"></div>
   <div class="wrap" style="position:relative;z-index:2">
     <div class="tag mono"><span class="n">[01]</span> AI ACT · REGLAMENTO (UE) 2024/1689 · EN VIGOR</div>
     <h1>La ley de IA<br>ya está en vigor.<br>Tu empresa <span class="br">[todavía]</span> no.</h1>
@@ -351,22 +358,26 @@
     <div class="deliv rv rv2">
       <div class="dcard">
         <div class="num mono">[01]</div>
+        <div class="dimg" style="background-image:url('../assets/img/aiact-inventario.jpg')"></div>
         <h3>Inventario de toda tu IA</h3>
         <p>Mapa completo de los sistemas de IA que usas o compras — incluidos los copilots y herramientas que tu equipo ya usa sin control. Clasificados por nivel de riesgo: prohibido, alto, limitado, mínimo.</p>
       </div>
       <div class="dcard">
         <div class="num mono">[02]</div>
+        <div class="dimg" style="background-image:url('../assets/img/aiact-exposicion.jpg')"></div>
         <h3>Tu exposición, en euros</h3>
         <p>Análisis de brechas frente al reglamento con la sanción potencial cuantificada por cada una. El informe que un CFO entiende en la primera página.</p>
         <div class="hl mono">Riesgo en €, no en teoría</div>
       </div>
       <div class="dcard">
         <div class="num mono">[03]</div>
+        <div class="dimg" style="background-image:url('../assets/img/aiact-roadmap.jpg')"></div>
         <h3>Roadmap de conformidad</h3>
         <p>Plan priorizado con fechas atadas a los deadlines legales. Qué corregir primero, qué puede esperar y qué no puede esperar de ninguna manera.</p>
       </div>
       <div class="dcard">
         <div class="num mono">[04]</div>
+        <div class="dimg" style="background-image:url('../assets/img/aiact-formacion.jpg')"></div>
         <h3>Plan de formación (Art. 4)</h3>
         <p>Lo que la ley ya te obliga desde febrero de 2025: alfabetización en IA para tu equipo. Te dejamos el plan listo para ejecutar.</p>
         <div class="hl mono">Obligatorio desde feb 2025</div>
@@ -380,6 +391,7 @@
   <div class="wrap">
     <div class="sec-tag mono rv"><span class="n" style="color:var(--blue)">[05]</span> Por qué nosotros</div>
     <h2 class="rv">Todos pueden decirte<br>qué dice la ley. <span class="br">[Nadie más]</span> puede construirlo.</h2>
+    <img class="vs-banner rv rv2" src="../assets/img/aiact-ingenieria.jpg" alt="Dictamen legal vs sistema construido" loading="lazy">
     <div class="vs-grid rv rv2">
       <div class="vcell">
         <div class="who mono">Bufetes</div>
