@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B0B0F">
+<title>The AI Business — Creamos los sistemas de IA que tus competidores desearían tener</title>
+<meta name="description" content="Automatización, agentes de IA y software a medida. Cumplimos GDPR y AI Act por contrato. Entregado en semanas, no en trimestres.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0B0B0F;--ink:#111116;--cream:#EFEDE3;--cream2:#E4E2D6;
+    --white:#fff;--gray:#D7D9E6;--mut:#7A7C88;--mut-d:#8B8D96;
+    --red:#FA4D4D;--blue:#5A70FA;--line-d:#22232B;--line-l:#D6D3C4;
+    --grad:linear-gradient(100deg,#FA4D4D,#5A70FA);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{background:var(--black);color:var(--white);font-family:'Inter',-apple-system,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--blue);color:#fff}
+  .mono{font-family:'Roboto Mono',monospace}
+  .wrap{max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,64px)}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px clamp(20px,4vw,64px);transition:background .3s,border .3s}
+  nav.scrolled{background:rgba(11,11,15,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-d)}
+  .logo{font-weight:800;font-size:14px;letter-spacing:.24em;white-space:nowrap}
+  .logo .a{color:var(--blue)}
+  .nav-links{display:flex;gap:30px;font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray)}
+  .nav-links a:hover{color:#fff}
+  .nav-cta{font-family:'Roboto Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--blue);padding:10px 18px;position:relative;overflow:hidden;transition:color .25s}
+  .nav-cta span{position:relative;z-index:1}
+  .nav-cta::before{content:'';position:absolute;inset:0;background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.7,0,.2,1)}
+  .nav-cta:hover::before{transform:scaleX(1)}
+
+  /* HERO */
+  .hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;position:relative;padding:120px 0 70px;overflow:hidden}
+  #net{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+  .hero-fade{position:absolute;inset:0;background:radial-gradient(ellipse 90% 70% at 50% 40%,transparent 30%,var(--black) 100%)}
+  .tag{font-family:'Roboto Mono',monospace;font-size:12px;letter-spacing:.18em;color:var(--blue);text-transform:uppercase}
+  .tag .n{color:var(--mut-d)}
+  h1{font-weight:900;font-size:clamp(40px,7.2vw,108px);line-height:.96;letter-spacing:-.028em;text-transform:uppercase;margin-top:24px}
+  h1 .br{color:var(--blue)}
+  .hero-sub{max-width:600px;font-size:clamp(16px,1.35vw,19px);line-height:1.55;color:var(--gray);margin-top:30px;font-weight:500}
+  .badges{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+  .badge{display:inline-flex;align-items:center;gap:8px;font-family:'Roboto Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:9px 14px;border:1px solid var(--line-d);color:var(--gray);background:rgba(19,20,27,.6)}
+  .badge b{color:#fff}
+  .badge .ok{color:var(--blue);font-weight:900}
+  .badge.law{border-color:rgba(90,112,250,.55);box-shadow:0 0 24px rgba(90,112,250,.12)}
+  .hero-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:40px}
+  .btn{display:inline-flex;align-items:center;gap:14px;background:var(--blue);color:#fff;font-weight:800;font-size:15px;letter-spacing:.05em;text-transform:uppercase;padding:21px 36px;position:relative;overflow:hidden;transition:transform .2s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn::after{content:'';position:absolute;inset:0;background:var(--grad);opacity:0;transition:opacity .3s}
+  .btn:hover::after{opacity:1}
+  .btn span,.btn b{position:relative;z-index:1}
+  .btn .arr{font-weight:900;transition:transform .25s}
+  .btn:hover .arr{transform:translateX(5px)}
+  .btn-ghost{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line-d);color:var(--gray);font-family:'Roboto Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;padding:21px 28px;transition:border .25s,color .25s}
+  .btn-ghost:hover{border-color:var(--blue);color:#fff}
+  .hero-proof{font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--mut-d);text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-top:26px}
+  .stars{color:var(--blue);letter-spacing:.2em}
+  .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-d);border:1px solid var(--line-d);margin-top:56px}
+  .hs{background:rgba(11,11,15,.85);padding:22px 24px}
+  .hs .v{font-weight:900;font-size:clamp(26px,2.6vw,40px);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .hs .v .u{color:var(--blue)}
+  .hs .l{font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut-d);margin-top:8px}
+
+  /* COMPLIANCE STRIP */
+  .comply{border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d);background:linear-gradient(100deg,rgba(250,77,77,.07),rgba(90,112,250,.09));padding:34px 0}
+  .comply .wrap{display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap}
+  .comply h3{font-weight:900;font-size:clamp(19px,2vw,26px);letter-spacing:-.015em;text-transform:uppercase}
+  .comply h3 .br{color:var(--blue)}
+  .comply .items{display:flex;gap:26px;flex-wrap:wrap}
+  .comply .it{font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray)}
+  .comply .it b{color:#fff}
+  .comply .it::before{content:'▮ ';color:var(--blue)}
+
+  /* SECTION BASES */
+  section{position:relative}
+  .dark{background:var(--black);padding:clamp(80px,9vw,140px) 0;overflow:hidden}
+  .cream{background:var(--cream);color:var(--ink);padding:clamp(80px,9vw,140px) 0;position:relative}
+  .grid-lines{position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none;display:grid;grid-template-columns:repeat(4,1fr)}
+  .grid-lines i{border-right:1px solid rgba(11,11,15,.055)}
+  .dark .grid-lines i{border-right:1px solid rgba(255,255,255,.04)}
+  .sec-tag{font-family:'Roboto Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+  .cream .sec-tag{color:var(--ink)} .dark .sec-tag{color:#fff}
+  .sec-tag .n{color:var(--blue)}
+  h2{font-weight:900;font-size:clamp(32px,4.8vw,74px);line-height:.97;letter-spacing:-.028em;text-transform:uppercase;margin-top:24px}
+  h2 .br{color:var(--blue)} h2 .rd{color:var(--red)}
+  .sub{font-size:clamp(15px,1.25vw,18px);line-height:1.6;margin-top:22px;max-width:620px;font-weight:500}
+  .dark .sub{color:var(--gray)} .cream .sub{color:#3A3B42}
+
+  /* PAIN TICKER */
+  .pains{margin-top:clamp(40px,5vw,70px);border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d);padding:14px 0;overflow:hidden}
+  .pains + .pains{border-top:none}
+  .pl{display:flex;width:max-content;animation:tick 36s linear infinite}
+  .pains:nth-child(odd) .pl{animation-duration:44s}
+  .pl span{font-family:'Roboto Mono',monospace;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);padding:0 30px;white-space:nowrap}
+  .pl span::before{content:'✕ ';color:var(--red)}
+  @keyframes tick{to{transform:translateX(-50%)}}
+
+  /* SERVICES */
+  .svc{margin-top:clamp(40px,5vw,70px);border-top:1px solid var(--line-l)}
+  .svc-row{display:grid;grid-template-columns:70px 1.1fr 1.6fr auto;gap:clamp(16px,2.5vw,44px);align-items:center;padding:30px 0;border-bottom:1px solid var(--line-l);transition:background .25s,padding .25s;cursor:default}
+  .svc-row:hover{background:var(--cream2);padding-left:14px}
+  .svc-row .id{font-family:'Roboto Mono',monospace;font-size:13px;color:var(--blue);font-weight:700}
+  .svc-row h3{font-weight:900;font-size:clamp(18px,1.8vw,25px);letter-spacing:-.015em;text-transform:uppercase;line-height:1.1}
+  .svc-row p{font-size:14.5px;line-height:1.55;color:#4A4B52}
+  .svc-row .out{font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);border:1px solid var(--ink);padding:7px 12px;white-space:nowrap}
+  .svc-row .out b{color:var(--red)}
+
+  /* PROJECTS */
+  .projs{margin-top:clamp(40px,5vw,70px);display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-d);border:1px solid var(--line-d)}
+  .pj{background:var(--black);padding:32px 30px 36px;position:relative;overflow:hidden;transition:background .3s}
+  .pj:hover{background:#101117}
+  .pj .cat{font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut-d)}
+  .pj h3{font-weight:900;font-size:22px;letter-spacing:-.015em;text-transform:uppercase;margin-top:14px;line-height:1.1}
+  .pj p{font-size:14px;line-height:1.55;color:var(--mut-d);margin-top:12px;min-height:66px}
+  .pj .kpis{display:flex;gap:22px;margin-top:22px;padding-top:20px;border-top:1px solid var(--line-d)}
+  .pj .kpi .v{font-weight:900;font-size:26px;letter-spacing:-.02em;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .pj .kpi .l{font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut-d);margin-top:5px}
+  .pj .go{position:absolute;top:28px;right:26px;font-weight:900;color:var(--mut-d);transition:color .25s,transform .25s}
+  .pj:hover .go{color:var(--blue);transform:translate(3px,-3px)}
+  .more-link{display:inline-flex;align-items:center;gap:10px;margin-top:30px;font-family:'Roboto Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);border-bottom:1px solid var(--blue);padding-bottom:4px}
+  .more-link:hover{color:#fff}
+
+  /* PROCESS */
+  .steps{margin-top:clamp(40px,5vw,70px);display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2vw,30px)}
+  .step{border-top:2px solid var(--ink);padding-top:22px}
+  .step .w{font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:700}
+  .step h3{font-weight:900;font-size:20px;letter-spacing:-.015em;text-transform:uppercase;margin-top:12px}
+  .step p{font-size:14px;line-height:1.55;color:#4A4B52;margin-top:10px}
+  .after{margin-top:clamp(40px,5vw,60px);display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-l);border:1px solid var(--line-l)}
+  .after .a{background:var(--cream);padding:26px}
+  .after .a:hover{background:var(--cream2)}
+  .after h4{font-weight:800;font-size:16px;text-transform:uppercase;letter-spacing:-.01em}
+  .after p{font-size:13.5px;line-height:1.55;color:#4A4B52;margin-top:8px}
+
+  /* EVENTS */
+  .events{margin-top:clamp(40px,5vw,70px);display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-d);border:1px solid var(--line-d)}
+  .ev{background:var(--black);position:relative;overflow:hidden;min-height:330px;display:flex;flex-direction:column;justify-content:flex-end}
+  .ev .ph{position:absolute;top:0;left:0;right:0;bottom:0;background-size:cover;background-position:center;filter:grayscale(35%) contrast(1.05);transition:transform .6s cubic-bezier(.2,.6,.2,1),filter .4s}
+  .ev:hover .ph{transform:scale(1.05);filter:grayscale(0%) contrast(1.05)}
+  .ev .sh{position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(11,11,15,.1) 30%,rgba(11,11,15,.92) 85%)}
+  .ev .in{position:relative;z-index:2;padding:24px}
+  .ev .yr{font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray)}
+  .ev h3{font-weight:900;font-size:21px;letter-spacing:-.015em;text-transform:uppercase;margin-top:8px}
+  .ev p{font-size:13px;line-height:1.5;color:var(--gray);margin-top:8px}
+  .ev .chip{position:absolute;top:18px;left:18px;z-index:2;font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;background:rgba(11,11,15,.75);border:1px solid var(--line-d);padding:6px 10px;color:var(--gray)}
+  .ev .chip.own{border-color:var(--red);color:var(--red)}
+  .press{margin-top:26px;font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut-d)}
+  .press b{color:#fff}
+
+  /* TESTIMONIALS */
+  .tst{margin-top:clamp(40px,5vw,70px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,24px)}
+  .tc{border:1px solid var(--line-l);background:var(--cream);padding:28px;display:flex;flex-direction:column}
+  .tc:hover{background:var(--cream2)}
+  .tc .q{font-size:15px;line-height:1.6;color:var(--ink);font-weight:500}
+  .tc .kpis{display:flex;gap:22px;margin:22px 0;padding:18px 0;border-top:1px solid var(--line-l);border-bottom:1px solid var(--line-l)}
+  .tc .kpi .v{font-weight:900;font-size:24px;letter-spacing:-.02em;color:var(--blue)}
+  .tc .kpi:first-child .v{color:var(--red)}
+  .tc .kpi .l{font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:#6B6C74;margin-top:4px}
+  .tc .who{display:flex;align-items:center;gap:12px;margin-top:auto}
+  .tc .who img{width:44px;height:44px;border-radius:50%;object-fit:cover}
+  .tc .who .n{font-weight:800;font-size:14px}
+  .tc .who .r{font-family:'Roboto Mono',monospace;font-size:10px;color:#6B6C74;margin-top:2px}
+  .grating{display:flex;align-items:center;gap:18px;margin-top:34px;flex-wrap:wrap}
+  .grating .big{font-weight:900;font-size:44px;letter-spacing:-.02em}
+  .grating .st{color:var(--blue);font-size:20px;letter-spacing:.14em}
+  .grating .t{font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6B6C74}
+
+  /* TOOLS */
+  .tools{margin-top:clamp(40px,5vw,70px);display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line-d);border:1px solid var(--line-d)}
+  .tool{background:var(--black);padding:26px 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:110px;transition:background .25s}
+  .tool:hover{background:#101117}
+  .tool .mk{font-weight:900;font-size:19px;letter-spacing:-.01em;color:var(--gray)}
+  .tool:hover .mk{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .tool .cat{font-family:'Roboto Mono',monospace;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut-d)}
+  .tools-note{margin-top:20px;font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut-d)}
+  .tools-note b{color:var(--blue)}
+
+  /* TEAM */
+  .team{margin-top:clamp(40px,5vw,70px);display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-l);border:1px solid var(--line-l)}
+  .tm{background:var(--cream);position:relative;overflow:hidden}
+  .tm img{width:100%;aspect-ratio:1/1.05;object-fit:cover;display:block;filter:grayscale(20%);transition:filter .4s,transform .6s}
+  .tm:hover img{filter:grayscale(0);transform:scale(1.03)}
+  .tm .in{padding:18px 20px 22px}
+  .tm .id{font-family:'Roboto Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:#6B6C74}
+  .tm h3{font-weight:900;font-size:17px;letter-spacing:-.01em;text-transform:uppercase;margin-top:8px}
+  .tm .r{font-family:'Roboto Mono',monospace;font-size:10px;color:#6B6C74;margin-top:4px;text-transform:uppercase;letter-spacing:.08em}
+
+  /* FAQ */
+  .faq{margin-top:clamp(36px,4vw,60px);border-top:1px solid var(--line-d)}
+  .fq{border-bottom:1px solid var(--line-d)}
+  .fq button{width:100%;background:none;border:none;color:#fff;font-family:'Inter',sans-serif;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 4px;cursor:pointer;font-weight:800;font-size:clamp(15px,1.4vw,19px);letter-spacing:-.01em}
+  .fq button .no{font-family:'Roboto Mono',monospace;font-size:11px;color:var(--blue);margin-right:14px}
+  .fq button .pm{font-weight:900;color:var(--mut-d);transition:transform .3s}
+  .fq.open button .pm{transform:rotate(45deg);color:var(--blue)}
+  .fq .ans{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.2,.6,.2,1)}
+  .fq .ans p{padding:0 4px 24px;font-size:14.5px;line-height:1.6;color:var(--mut-d);max-width:760px}
+
+  /* FINAL CTA */
+  .final{min-height:88vh;min-height:88svh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;padding:clamp(80px,9vw,140px) 0}
+  .final h2{text-align:center;font-size:clamp(36px,6.4vw,100px)}
+  .final .sub{text-align:center;margin:28px auto 0}
+  .final .cta-row{display:flex;justify-content:center;gap:16px;margin-top:44px;flex-wrap:wrap}
+  .final .glow{position:absolute;width:820px;height:820px;border-radius:50%;filter:blur(130px);opacity:.24;background:var(--blue);left:50%;transform:translateX(-50%);bottom:-500px}
+  .final .pts{display:flex;justify-content:center;gap:28px;margin-top:30px;flex-wrap:wrap}
+  .final .pt{font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray)}
+  .final .pt::before{content:'✓ ';color:var(--blue);font-weight:900}
+
+  footer{border-top:1px solid var(--line-d);padding:36px 0}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+  footer span,footer a{font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut-d)}
+  footer a:hover{color:#fff}
+
+  /* reveal */
+  .js .rv{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.6,.2,1),transform .8s cubic-bezier(.2,.6,.2,1)}
+  .js .rv.in{opacity:1;transform:none}
+  .rv2{transition-delay:.1s}.rv3{transition-delay:.2s}.rv4{transition-delay:.3s}
+
+  @media(max-width:1024px){
+    .projs,.tst,.events{grid-template-columns:1fr 1fr}
+    .tools{grid-template-columns:repeat(4,1fr)}
+    .steps{grid-template-columns:1fr 1fr}
+    .team{grid-template-columns:1fr 1fr}
+    .svc-row{grid-template-columns:44px 1fr;grid-template-rows:auto auto}
+    .svc-row p{grid-column:2}
+    .svc-row .out{grid-column:2;justify-self:start}
+  }
+  @media(max-width:640px){
+    .nav-links{display:none}
+    .hero-stats{grid-template-columns:1fr 1fr}
+    .projs,.tst,.events,.after,.team{grid-template-columns:1fr}
+    .tools{grid-template-columns:repeat(3,1fr)}
+    .steps{grid-template-columns:1fr}
+    #net{opacity:.35}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .pl{animation:none}
+    .js .rv{opacity:1;transform:none;transition:none}
+    #net{display:none}
+  }
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+
+<nav id="nav">
+  <a class="logo" href="#">THE <span class="a">ΛI</span> BUSINESS</a>
+  <div class="nav-links">
+    <a href="#servicios">Servicios</a><a href="#proyectos">Proyectos</a><a href="#eventos">Eventos</a><a href="#equipo">Equipo</a><a href="#faq">FAQ</a>
+  </div>
+  <a class="nav-cta" href="https://calendly.com/d/cvmf-8xc-86d/the-ai-business-discovery"><span>Auditoría gratuita</span></a>
+</nav>
+
+<!-- ══════ HERO ══════ -->
+<header class="hero">
+  <canvas id="net"></canvas>
+  <div class="hero-fade"></div>
+  <div class="wrap" style="position:relative;z-index:2">
+    <div class="tag mono rv in"><span class="n">[01]</span> Consultancy · Tech Lab · Creativity on overdrive</div>
+    <h1 class="rv in">Creamos los sistemas de IA que tus competidores <span class="br">[desearían]</span> tener.</h1>
+    <p class="hero-sub rv in rv2">Automatización, agentes de IA y software a medida que reducen costes e impulsan ingresos. Entregado en semanas, no en trimestres. Y con una garantía que nadie más firma:</p>
+    <div class="badges rv in rv2">
+      <span class="badge law"><span class="ok">✓</span> <b>GDPR</b>&nbsp;por contrato</span>
+      <span class="badge law"><span class="ok">✓</span> <b>AI ACT</b>&nbsp;por contrato</span>
+      <span class="badge"><span class="ok">✓</span> Entrega en <b>6 semanas</b></span>
+      <span class="badge"><span class="ok">✓</span> ROI medido, <b>no prometido</b></span>
+    </div>
+    <div class="hero-row rv in rv3">
+      <a class="btn" href="https://calendly.com/d/cvmf-8xc-86d/the-ai-business-discovery"><span>Consigue tu auditoría de IA gratuita</span><b class="arr">→</b></a>
+      <a class="btn-ghost" href="#proyectos">Ver proyectos</a>
+    </div>
+    <div class="hero-proof mono rv in rv3"><span class="stars">★★★★★</span> 4,9 EN GOOGLE · 45 RESEÑAS · MIAMI · ESPAÑA · DUBÁI</div>
+    <div class="hero-stats rv in rv4">
+      <div class="hs"><div class="v" data-c="50" data-suf="+">0</div><div class="l">Empresas transformadas</div></div>
+      <div class="hs"><div class="v"><span data-c="520" data-pre="+" data-suf="%">0</span></div><div class="l">El mayor ROI de un cliente</div></div>
+      <div class="hs"><div class="v"><span data-c="10.3" data-suf="M+ €" data-dec="1">0</span></div><div class="l">Ingresos generados para clientes</div></div>
+      <div class="hs"><div class="v" data-c="7" data-suf="+">0</div><div class="l">Industrias redefinidas</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════ COMPLIANCE STRIP ══════ -->
+<section class="comply">
+  <div class="wrap">
+    <h3 class="rv">Cumplimos <span class="br">GDPR y AI Act</span> — y lo firmamos en el contrato.</h3>
+    <div class="items rv rv2">
+      <span class="it"><b>Conformidad por diseño</b> — no parcheada después</span>
+      <span class="it"><b>DPA + auditoría</b> incluidos en cada proyecto</span>
+      <span class="it"><b>Tus datos, tu IP</b> — 100% tuyos al entregar</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ PROBLEMA ══════ -->
+<section class="dark">
+  <div class="wrap">
+    <div class="sec-tag mono rv"><span class="n">[02]</span> El coste de no actuar</div>
+    <h2 class="rv">Tu equipo está pagando cada mes por trabajo que la IA <span class="rd">ya hace mejor.</span></h2>
+    <p class="sub rv rv2">No es una teoría: es tu nómina haciendo tareas de un script. Cada mes que pasa es margen que regalas.</p>
+  </div>
+  <div class="pains rv rv3"><div class="pl"><span>El soporte al cliente se acumula a diario</span><span>Entrada de datos: +20 horas semanales</span><span>Tu mejor gente atrapada en trabajo mecánico</span><span>Errores manuales que cuestan miles al mes</span><span>El soporte al cliente se acumula a diario</span><span>Entrada de datos: +20 horas semanales</span><span>Tu mejor gente atrapada en trabajo mecánico</span><span>Errores manuales que cuestan miles al mes</span></div></div>
+  <div class="pains rv rv3"><div class="pl"><span>Informes creados a mano cada mes</span><span>Escalar = contratar más personal caro</span><span>Onboarding retrasado por transferencias manuales</span><span>Tareas repetitivas que bloquean la estrategia</span><span>Informes creados a mano cada mes</span><span>Escalar = contratar más personal caro</span><span>Onboarding retrasado por transferencias manuales</span><span>Tareas repetitivas que bloquean la estrategia</span></div></div>
+  <div class="wrap" style="margin-top:40px">
+    <a class="more-link rv" href="https://leadm.theaibusiness.com/">Calcula cuánto te cuesta el trabajo manual → calculadora de ROI</a>
+  </div>
+</section>
+
+<!-- ══════ SERVICIOS ══════ -->
+<section class="cream" id="servicios">
+  <div class="grid-lines"><i></i><i></i><i></i><i></i></div>
+  <div class="wrap" style="position:relative;z-index:2">
+    <div class="sec-tag mono rv"><span class="n">[03]</span> Servicios</div>
+    <h2 class="rv">De la estrategia a la ejecución. Todo lo que tu próximo proyecto necesita <span class="br">[para vender más]</span>.</h2>
+    <div class="svc rv rv2">
+      <div class="svc-row">
+        <div class="id">01</div>
+        <h3>Estrategia y consultoría de IA</h3>
+        <p>Entramos en tu negocio, encontramos las oportunidades con ROI real y diseñamos el plan. Sin humo: si la IA no te conviene, te lo decimos.</p>
+        <div class="out">Roadmap con <b>ROI</b> estimado</div>
+      </div>
+      <div class="svc-row">
+        <div class="id">02</div>
+        <h3>Prototipado y MVP</h3>
+        <p>De la servilleta al producto funcionando: rápido, medible y diseñado para validar con clientes reales antes de invertir fuerte.</p>
+        <div class="out">Producto vivo en <b>semanas</b></div>
+      </div>
+      <div class="svc-row">
+        <div class="id">03</div>
+        <h3>Software a medida y agentes de IA</h3>
+        <p>Agentes y software especializados que se encargan del trabajo que tus personas no deberían estar haciendo.</p>
+        <div class="out">Horas devueltas a tu <b>equipo</b></div>
+      </div>
+      <div class="svc-row">
+        <div class="id">04</div>
+        <h3>Automatización de procesos</h3>
+        <p>Eliminamos el trabajo pesado, conectamos tus herramientas y dejamos a tu equipo donde genera dinero.</p>
+        <div class="out">Coste operativo <b>abajo</b></div>
+      </div>
+      <div class="svc-row">
+        <div class="id">05</div>
+        <h3>Infraestructura Cloud y DevOps</h3>
+        <p>AWS y Azure con arquitectura seria: escalable, segura, auditable y lista para crecer contigo, no en tu contra.</p>
+        <div class="out">Enterprise-grade, <b>GDPR</b> ready</div>
+      </div>
+      <div class="svc-row">
+        <div class="id">06</div>
+        <h3>Estudio creativo y de producto</h3>
+        <p>Diseño que convierte y contenido que resuena. Cada pantalla se gana su lugar con impacto en métricas.</p>
+        <div class="out">Diseño que <b>convierte</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ PROYECTOS (NUEVO) ══════ -->
+<section class="dark" id="proyectos">
+  <div class="wrap">
+    <div class="sec-tag mono rv"><span class="n">[04]</span> Proyectos</div>
+    <h2 class="rv">Resultados reales, con nombre <span class="br">[y número]</span>.</h2>
+    <p class="sub rv rv2">16 casos publicados. Estos son algunos — cada uno con métricas verificables, no promesas.</p>
+    <div class="projs rv rv3">
+      <a class="pj" href="https://theaibusiness.com/es/case-studies/entidad-bancaria-europa">
+        <div class="go">↗</div><div class="cat">Banca · Automatización</div>
+        <h3>Entidad bancaria europea</h3>
+        <p>Automatización de informes regulatorios y conciliación con precisión de cumplimiento auditable.</p>
+        <div class="kpis"><div class="kpi"><div class="v">92%</div><div class="l">informes automatizados</div></div><div class="kpi"><div class="v">99,8%</div><div class="l">precisión cumplimiento</div></div></div>
+      </a>
+      <a class="pj" href="https://theaibusiness.com/es/case-studies/autointel">
+        <div class="go">↗</div><div class="cat">Automoción · Inteligencia operacional</div>
+        <h3>AutoIntel</h3>
+        <p>Pricing predictivo y monitorización de oportunidades 24/7 para optimizar inventario y márgenes.</p>
+        <div class="kpis"><div class="kpi"><div class="v">2x</div><div class="l">entrega más rápida</div></div><div class="kpi"><div class="v">4x</div><div class="l">capacidad de análisis</div></div></div>
+      </a>
+      <a class="pj" href="https://theaibusiness.com/es/case-studies/fund-os">
+        <div class="go">↗</div><div class="cat">Inversión · Software a medida</div>
+        <h3>Fund OS</h3>
+        <p>Sistema operativo de fondo: cierre, conciliación y reporting inversor en una sola capa inteligente.</p>
+        <div class="kpis"><div class="kpi"><div class="v">12 días</div><div class="l">cierre más rápido</div></div><div class="kpi"><div class="v">-95%</div><div class="l">tiempo de conciliación</div></div></div>
+      </a>
+      <a class="pj" href="https://theaibusiness.com/es/case-studies/dermai">
+        <div class="go">↗</div><div class="cat">Salud · Producto IA</div>
+        <h3>DermAI</h3>
+        <p>Diagnóstico dermatológico asistido por IA con supervisión clínica — conforme al AI Act desde el diseño.</p>
+        <div class="kpis"><div class="kpi"><div class="v">45m→2m</div><div class="l">por evaluación</div></div><div class="kpi"><div class="v">10K+</div><div class="l">casos/mes</div></div></div>
+      </a>
+      <a class="pj" href="https://theaibusiness.com/es/case-studies/plataforma-ecom">
+        <div class="go">↗</div><div class="cat">Ecommerce · Automatización</div>
+        <h3>Plataforma Ecom</h3>
+        <p>Contenido, pricing y operaciones automatizadas para escalar catálogo sin escalar plantilla.</p>
+        <div class="kpis"><div class="kpi"><div class="v">4.000</div><div class="l">piezas/mes generadas</div></div><div class="kpi"><div class="v">+380%</div><div class="l">ROI contenido</div></div></div>
+      </a>
+      <a class="pj" href="https://theaibusiness.com/es/case-studies/fuertafit">
+        <div class="go">↗</div><div class="cat">Fitness · Revenue Intelligence</div>
+        <h3>Fuertafit</h3>
+        <p>Scoring de leads y automatización de ventas integrada en el CRM para priorizar lo que cierra.</p>
+        <div class="kpis"><div class="kpi"><div class="v">+35%</div><div class="l">conversión</div></div><div class="kpi"><div class="v">-18%</div><div class="l">churn</div></div></div>
+      </a>
+    </div>
+    <a class="more-link rv" href="https://theaibusiness.com/es/case-studies">Ver los 16 casos de éxito →</a>
+  </div>
+</section>
+
+<!-- ══════ PROCESO ══════ -->
+<section class="cream">
+  <div class="grid-lines"><i></i><i></i><i></i><i></i></div>
+  <div class="wrap" style="position:relative;z-index:2">
+    <div class="sec-tag mono rv"><span class="n">[05]</span> Cómo funciona</div>
+    <h2 class="rv">De la primera llamada al sistema en producción. <span class="rd">Sin rodeos.</span></h2>
+    <div class="steps rv rv2">
+      <div class="step"><div class="w mono">Semana 1</div><h3>Análisis profundo</h3><p>Conocemos tu negocio a fondo, identificamos los desafíos reales y las oportunidades de mayor impacto en euros.</p></div>
+      <div class="step"><div class="w mono">Semanas 2–3</div><h3>Diseño y arquitectura</h3><p>Solución a medida, tecnologías elegidas con criterio y plan de ejecución claro. Sin suposiciones.</p></div>
+      <div class="step"><div class="w mono">Semanas 4–5</div><h3>Construir y entregar</h3><p>Desarrollo, integración y pruebas rigurosas. Lo construimos, lo rompemos y lo hacemos a prueba de balas.</p></div>
+      <div class="step"><div class="w mono">Semana 6</div><h3>Lanzar y escalar</h3><p>Despliegue, formación del equipo y optimización continua. No desaparecemos: escalamos contigo.</p></div>
+    </div>
+    <div class="after rv rv3">
+      <div class="a"><h4>Monitorización continua</h4><p>Seguimiento en tiempo real de cada sistema. Informes mensuales de rendimiento, ahorro y ROI.</p></div>
+      <div class="a"><h4>Optimización trimestral</h4><p>Sesiones de estrategia para encontrar nuevas oportunidades y descartar lo que no funciona.</p></div>
+      <div class="a"><h4>Soporte y formación</h4><p>Soporte prioritario por Slack y email. Formamos a tu equipo y nos quedamos en las trincheras contigo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ EVENTOS (MEJORADO CON FOTOS) ══════ -->
+<section class="dark" id="eventos">
+  <div class="wrap">
+    <div class="sec-tag mono rv"><span class="n">[06]</span> Autoridad y presencia</div>
+    <h2 class="rv">No hablamos de IA desde fuera. Estamos donde se toman <span class="br">[las decisiones]</span>.</h2>
+    <p class="sub rv rv2">Medios, foros y salas donde fundadores, fondos y líderes deciden cómo aplicar la tecnología en sus negocios.</p>
+    <div class="events rv rv3">
+      <div class="ev">
+        <div class="ph" style="background-image:url('assets/ev-abast.jpg')"></div><div class="sh"></div>
+        <div class="chip own mono">Evento propio</div>
+        <div class="in"><div class="yr mono">2026 · Andorra</div><h3>ABAST INVEST</h3><p>Nuestro evento, con socios estratégicos: inversión, negocios e IA aplicada. Organizamos la sala — no solo asistimos.</p></div>
+      </div>
+      <div class="ev">
+        <div class="ph" style="background-image:url('assets/ev-southsummit.jpg')"></div><div class="sh"></div>
+        <div class="chip mono">Presencia verificada</div>
+        <div class="in"><div class="yr mono">2026 · Madrid</div><h3>South Summit</h3><p>El evento de referencia en innovación y startups donde se define el futuro de los negocios en España.</p></div>
+      </div>
+      <div class="ev">
+        <div class="ph" style="background:linear-gradient(135deg,#14151d 0%,#0B0B0F 55%,rgba(90,112,250,.25) 130%)"></div><div class="sh"></div>
+        <div class="chip mono">Presencia verificada</div><div class="chip mono" style="top:auto;bottom:18px;color:#5A70FA;border-color:#2a2f55">Foto del evento aquí</div>
+        <div class="in"><div class="yr mono">2026 · Madrid</div><h3>Foro Económico de Madrid</h3><p>Entornos empresariales de alto nivel donde se deciden inversión y transformación.</p></div>
+      </div>
+      <div class="ev">
+        <div class="ph" style="background:linear-gradient(135deg,#14151d 0%,#0B0B0F 55%,rgba(250,77,77,.22) 130%)"></div><div class="sh"></div>
+        <div class="chip mono">Presencia verificada</div>
+        <div class="in"><div class="yr mono">2026 · Madrid</div><h3>SIMA</h3><p>Salón Inmobiliario Internacional: el ecosistema de la propiedad, la inversión y la transformación digital.</p></div>
+      </div>
+      <div class="ev">
+        <div class="ph" style="background:linear-gradient(160deg,#12131a 0%,#0B0B0F 50%,rgba(90,112,250,.3) 135%)"></div><div class="sh"></div>
+        <div class="chip mono">Presencia verificada</div>
+        <div class="in"><div class="yr mono">2026 · Ibiza</div><h3>Ibiza Tech Forum</h3><p>Networking tecnológico y posicionamiento en IA para líderes digitales.</p></div>
+      </div>
+      <div class="ev">
+        <div class="ph" style="background:linear-gradient(160deg,#12131a 0%,#0B0B0F 50%,rgba(250,77,77,.25) 135%)"></div><div class="sh"></div>
+        <div class="chip mono">Internacional</div>
+        <div class="in"><div class="yr mono">2026 · Berlín</div><h3>Ecommerce Berlin Expo</h3><p>Feria líder europea de ecommerce — presencia internacional en retail digital y plataformas de venta.</p></div>
+      </div>
+    </div>
+    <div class="press mono rv">Aparece en: <b>Emprendedores</b> · Prensa económica y de negocios nacional</div>
+  </div>
+</section>
+
+<!-- ══════ TESTIMONIOS ══════ -->
+<section class="cream" id="testimonios">
+  <div class="grid-lines"><i></i><i></i><i></i><i></i></div>
+  <div class="wrap" style="position:relative;z-index:2">
+    <div class="sec-tag mono rv"><span class="n">[07]</span> Testimonios</div>
+    <h2 class="rv">No te quedes con nuestra palabra. <span class="br">Quédate con sus números.</span></h2>
+    <div class="tst rv rv2">
+      <div class="tc">
+        <p class="q">"Necesitábamos automatización inteligente y dieron en el clavo. Cada paso fue colaborativo, transparente y enfocado en el mejor resultado para nosotros."</p>
+        <div class="kpis"><div class="kpi"><div class="v">92%</div><div class="l">informes automatizados</div></div><div class="kpi"><div class="v">99,8%</div><div class="l">precisión</div></div></div>
+        <div class="who"><img src="https://framerusercontent.com/images/yJH84EjXQlMFm8sUmBy0XXScmks.png?width=200&height=200" alt="Marina Peña"><div><div class="n">Marina Peña</div><div class="r mono">CMO · Banco Santander</div></div></div>
+      </div>
+      <div class="tc">
+        <p class="q">"Nos ayudaron a identificar oportunidades clave y crearon herramientas que impulsaron nuestra velocidad y precisión. Ya estamos viendo resultados."</p>
+        <div class="kpis"><div class="kpi"><div class="v">2x</div><div class="l">entrega más rápida</div></div><div class="kpi"><div class="v">4x</div><div class="l">capacidad analistas</div></div></div>
+        <div class="who"><img src="https://framerusercontent.com/images/SJmgWz99eOiN4BnYUp36xNbVZQ.png?width=800&height=800" alt="Álvaro Sahelices"><div><div class="n">Álvaro Sahelices</div><div class="r mono">COO · ProyectaSport</div></div></div>
+      </div>
+      <div class="tc">
+        <p class="q">"Su visión estratégica y precisión técnica nos permitieron escalar más rápido que nunca. No crean software: crean ventajas competitivas."</p>
+        <div class="kpis"><div class="kpi"><div class="v">12 días</div><div class="l">cierre más rápido</div></div><div class="kpi"><div class="v">-95%</div><div class="l">tiempo conciliación</div></div></div>
+        <div class="who"><img src="https://framerusercontent.com/images/ewAwQbg59X9hvlbZHk3pa2b2Bw.png?width=512&height=307" alt="Alberto Teichman"><div><div class="n">Alberto Teichman</div><div class="r mono">DG · Audi España</div></div></div>
+      </div>
+    </div>
+    <div class="grating rv">
+      <div class="big">4,9</div><div class="st">★★★★★</div>
+      <div class="t mono">45 reseñas en Google · Cada automatización entregada a tiempo · Cada cliente sigue con nosotros</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ HERRAMIENTAS (SERIAS) ══════ -->
+<section class="dark" id="stack">
+  <div class="wrap">
+    <div class="sec-tag mono rv"><span class="n">[08]</span> Stack tecnológico</div>
+    <h2 class="rv">Herramientas de grado <span class="br">[enterprise]</span>. Nada de juguetes.</h2>
+    <p class="sub rv rv2">Construimos sobre la infraestructura que usan los bancos y las farmacéuticas — porque tus sistemas van a producción, no a una demo.</p>
+    <div class="tools rv rv3">
+      <div class="tool"><div class="mk">AWS</div><div class="cat mono">Cloud</div></div>
+      <div class="tool"><div class="mk">Azure</div><div class="cat mono">Cloud</div></div>
+      <div class="tool"><div class="mk">Google Cloud</div><div class="cat mono">Cloud</div></div>
+      <div class="tool"><div class="mk">OpenAI</div><div class="cat mono">Modelos IA</div></div>
+      <div class="tool"><div class="mk">Anthropic</div><div class="cat mono">Modelos IA</div></div>
+      <div class="tool"><div class="mk">Gemini</div><div class="cat mono">Modelos IA</div></div>
+      <div class="tool"><div class="mk">ElevenLabs</div><div class="cat mono">Voz IA</div></div>
+      <div class="tool"><div class="mk">LangChain</div><div class="cat mono">Agentes</div></div>
+      <div class="tool"><div class="mk">Kubernetes</div><div class="cat mono">Infraestructura</div></div>
+      <div class="tool"><div class="mk">PostgreSQL</div><div class="cat mono">Datos</div></div>
+      <div class="tool"><div class="mk">Snowflake</div><div class="cat mono">Data warehouse</div></div>
+      <div class="tool"><div class="mk">Terraform</div><div class="cat mono">IaC</div></div>
+    </div>
+    <div class="tools-note mono rv">+ integraciones con <b>Salesforce, SAP, Stripe, HubSpot</b> y tu stack actual · Seguridad y cumplimiento <b>GDPR / AI Act</b> en cada capa</div>
+  </div>
+</section>
+
+<!-- ══════ EQUIPO ══════ -->
+<section class="cream" id="equipo">
+  <div class="grid-lines"><i></i><i></i><i></i><i></i></div>
+  <div class="wrap" style="position:relative;z-index:2">
+    <div class="sec-tag mono rv"><span class="n">[09]</span> El equipo</div>
+    <h2 class="rv">Las personas detrás <span class="br">de los sistemas.</span></h2>
+    <p class="sub rv rv2">Depuramos código, desafiamos suposiciones y entregamos rápido. Y estamos en la misma sala que fundadores y fondos — por eso entendemos qué les desvela.</p>
+    <div class="team rv rv3">
+      <div class="tm"><img src="https://framerusercontent.com/images/hKroCX5pHndiQ98jiQlhyEOyY.jpg?width=1024&height=1024" alt="Brian Greenwalt" loading="lazy"><div class="in"><div class="id mono">ID[01] · España–Alicante</div><h3>Brian Greenwalt</h3><div class="r mono">Fundador y CEO</div></div></div>
+      <div class="tm"><img src="https://framerusercontent.com/images/LZfR1T5zod30yH43HxlEIftHB4Y.jpg?width=1024&height=1024" alt="Alejandro Ríos Calera" loading="lazy"><div class="in"><div class="id mono">ID[02] · Andorra</div><h3>Alejandro Ríos Calera</h3><div class="r mono">Cofundador y CTO</div></div></div>
+      <div class="tm"><img src="https://framerusercontent.com/images/gOW8OszfrgYEpanOdQ5KCMcQ394.jpg?width=1024&height=1024" alt="Pablo Rodríguez Pujalte" loading="lazy"><div class="in"><div class="id mono">ID[03] · España–Alicante</div><h3>Pablo Rodríguez Pujalte</h3><div class="r mono">Director de Marketing</div></div></div>
+      <div class="tm"><img src="https://framerusercontent.com/images/wp0cHyTbOb3rBWiWTgfDHdW8Wmk.jpg?width=1024&height=1024" alt="Paula Morante" loading="lazy"><div class="in"><div class="id mono">ID[04] · EE.UU.–Miami</div><h3>Paula Morante</h3><div class="r mono">Directora de Operaciones</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FAQ ══════ -->
+<section class="dark" id="faq">
+  <div class="wrap">
+    <div class="sec-tag mono rv"><span class="n">[10]</span> Respuestas</div>
+    <h2 class="rv">Preguntas <span class="br">frecuentes.</span></h2>
+    <div class="faq rv rv2">
+      <div class="fq"><button><span><span class="no mono">01</span>¿Cuánto cuesta?</span><span class="pm">+</span></button><div class="ans"><p>Depende del alcance — y eso es exactamente lo que responde la auditoría gratuita. Recibes un presupuesto cerrado antes de que escribamos una línea de código. Sin sorpresas.</p></div></div>
+      <div class="fq"><button><span><span class="no mono">02</span>¿Exigen contratos a largo plazo?</span><span class="pm">+</span></button><div class="ans"><p>No. La mayoría de los proyectos empieza con una fase de descubrimiento de 2–3 semanas para mapear procesos y calcular el ROI. Si la automatización no tiene sentido para ti, te lo diremos. El soporte continuo está disponible, pero nunca es obligatorio.</p></div></div>
+      <div class="fq"><button><span><span class="no mono">03</span>¿Cómo garantizan el cumplimiento de GDPR y AI Act?</span><span class="pm">+</span></button><div class="ans"><p>Por contrato. Cada proyecto incluye DPA, clasificación de riesgo según el AI Act, documentación técnica y trazabilidad desde el diseño — no parcheado al final. Si un regulador llama a tu puerta, tienes el expediente listo.</p></div></div>
+      <div class="fq"><button><span><span class="no mono">04</span>¿Qué pasa si el sistema no da el ROI prometido?</span><span class="pm">+</span></button><div class="ans"><p>Medimos resultados contra las proyecciones. Si un sistema no rinde como se esperaba, investigamos el motivo — adopción, técnica o cambio de procesos — y lo arreglamos. Nuestra reputación depende de resultados reales, no de entregas.</p></div></div>
+      <div class="fq"><button><span><span class="no mono">05</span>¿Cuánto tarda un proyecto?</span><span class="pm">+</span></button><div class="ans"><p>La mayoría va de auditoría a lanzamiento en 6 semanas. Los proyectos grandes se dividen en fases de 6 semanas, así que ves resultados desde la primera fase.</p></div></div>
+      <div class="fq"><button><span><span class="no mono">06</span>¿Y si la automatización falla?</span><span class="pm">+</span></button><div class="ans"><p>Incorporamos monitorización en cada sistema para saberlo de inmediato. Lógica de reintento automático para fallos temporales, soporte 24/7 para sistemas críticos y formación a tu equipo para resolver lo común. Nada se queda sin vigilar.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ CTA FINAL ══════ -->
+<section class="final">
+  <div class="glow"></div>
+  <div class="wrap" style="position:relative;z-index:2">
+    <h2 class="rv" style="text-transform:uppercase">¿Tu sector no está aquí?<br><span class="br">Probablemente ya lo resolvimos.</span></h2>
+    <p class="sub rv rv2" style="max-width:560px">Solicita el diagnóstico gratuito y te enseñamos dónde está el sistema que tu negocio necesita — con números, no con promesas.</p>
+    <div class="pts rv rv2">
+      <span class="pt">Análisis personalizado de tu caso</span>
+      <span class="pt">Hoja de ruta tecnológica clara</span>
+      <span class="pt">Sin compromiso — 100% consultivo</span>
+    </div>
+    <div class="cta-row rv rv3">
+      <a class="btn" href="https://calendly.com/d/cvmf-8xc-86d/the-ai-business-discovery"><span>Solicitar diagnóstico gratuito</span><b class="arr">→</b></a>
+      <a class="btn-ghost mono" href="mailto:info@theaibusiness.com">info@theaibusiness.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>THE ΛI BUSINESS © 2026</span>
+    <span>MIAMI · ESPAÑA · DUBÁI</span>
+    <span><a href="https://theaibusiness.com/es/legal/privacy-policy">Privacidad</a> · <a href="https://theaibusiness.com/es/legal/terms-conditions">Términos</a> · <a href="https://theaibusiness.com/es/legal/cookie-policy">Cookies</a></span>
+    <span>GDPR & AI ACT COMPLIANT — POR CONTRATO</span>
+  </div>
+</footer>
+
+<script>
+// nav
+try{
+  const nav=document.getElementById('nav');
+  addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+}catch(e){}
+
+// reveal
+try{
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+    document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  }else{document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));}
+}catch(e){document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));}
+
+// counters
+try{
+  const io2=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting)return;io2.unobserve(e.target);
+    const el=e.target,t=parseFloat(el.dataset.c),suf=el.dataset.suf||'',pre=el.dataset.pre||'',dec=+(el.dataset.dec||0);
+    const start=performance.now(),dur=1500;
+    (function f(now){const p=Math.min(1,(now-start)/dur),ease=1-Math.pow(1-p,3);
+      el.textContent=pre+(t*ease).toFixed(dec).replace('.',',')+suf;if(p<1)requestAnimationFrame(f);})(start);
+  }),{threshold:.5});
+  document.querySelectorAll('[data-c]').forEach(el=>io2.observe(el));
+}catch(e){}
+
+// FAQ accordion
+try{
+  document.querySelectorAll('.fq button').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const fq=btn.parentElement,ans=fq.querySelector('.ans'),open=fq.classList.contains('open');
+      document.querySelectorAll('.fq.open').forEach(o=>{o.classList.remove('open');o.querySelector('.ans').style.maxHeight='0';});
+      if(!open){fq.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px';}
+    });
+  });
+}catch(e){}
+
+// HERO: red neuronal animada (canvas) — el "fondo negro más visual"
+try{
+  const cv=document.getElementById('net'),ctx=cv.getContext('2d');
+  let W,H,pts=[],mouse={x:-999,y:-999};
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function size(){
+    W=cv.width=cv.offsetWidth*devicePixelRatio;H=cv.height=cv.offsetHeight*devicePixelRatio;
+    const n=Math.min(90,Math.floor(cv.offsetWidth/14));
+    pts=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35*devicePixelRatio,vy:(Math.random()-.5)*.35*devicePixelRatio,r:(Math.random()*1.6+.8)*devicePixelRatio,c:Math.random()<.18?'#FA4D4D':'#5A70FA'}));
+  }
+  size();addEventListener('resize',size);
+  cv.parentElement.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();mouse.x=(e.clientX-r.left)*devicePixelRatio;mouse.y=(e.clientY-r.top)*devicePixelRatio;});
+  cv.parentElement.addEventListener('pointerleave',()=>{mouse.x=-999;mouse.y=-999;});
+  const MAXD=150*devicePixelRatio;
+  function frame(){
+    ctx.clearRect(0,0,W,H);
+    for(const p of pts){
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+      // atracción suave al ratón
+      const dxm=mouse.x-p.x,dym=mouse.y-p.y,dm=Math.hypot(dxm,dym);
+      if(dm<220*devicePixelRatio&&dm>1){p.x+=dxm/dm*.3;p.y+=dym/dm*.3;}
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,7);ctx.fillStyle=p.c;ctx.globalAlpha=.85;ctx.fill();
+    }
+    ctx.globalAlpha=1;
+    for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
+      const a=pts[i],b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.hypot(dx,dy);
+      if(d<MAXD){
+        ctx.strokeStyle=a.c==='#FA4D4D'||b.c==='#FA4D4D'?'rgba(250,77,77,.14)':'rgba(90,112,250,.14)';
+        ctx.lineWidth=devicePixelRatio*(1-d/MAXD);
+        ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
+      }
+    }
+    if(!reduced)requestAnimationFrame(frame);
+  }
+  frame();
+}catch(e){}
+</script>
+</body>
+</html>
