@@ -104,12 +104,13 @@
   .vs-banner{width:100%;display:block;border:1px solid var(--line-d);margin-top:34px}
 
   /* ═══ CLIENTES ═══ */
-  .clients{border-bottom:1px solid var(--line-d);padding:30px 0;background:var(--black)}
-  .clients .cap{font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut-d);text-align:center;margin-bottom:22px}
-  .clients .row{display:flex;justify-content:center;align-items:center;gap:clamp(24px,4vw,56px);flex-wrap:wrap}
-  .clients .cl{font-weight:800;font-size:clamp(14px,1.4vw,19px);letter-spacing:.04em;color:#6E7080;text-transform:uppercase;white-space:nowrap;transition:color .3s}
-  .clients .cl:hover{color:#fff}
-  .clients .cl i{font-style:normal;color:var(--blue);font-weight:400;margin:0 2px}
+  .clients{border-bottom:1px solid var(--line-d);padding:44px 0 48px;background:linear-gradient(180deg,var(--black),#0E0F15)}
+  .clients .cap{font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gray);text-align:center;margin-bottom:28px}
+  .clients .cap b{color:#fff}
+  .clients .row{display:flex;justify-content:center;align-items:center;gap:clamp(18px,3vw,44px);flex-wrap:wrap;row-gap:18px}
+  .clients .cl{font-weight:900;font-size:clamp(17px,1.9vw,26px);letter-spacing:.02em;color:#C9CBD8;text-transform:uppercase;white-space:nowrap;transition:all .3s;position:relative;padding:4px 0}
+  .clients .cl:hover{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;transform:translateY(-2px)}
+  .clients .sep{width:5px;height:5px;border-radius:50%;background:var(--blue);opacity:.6;flex-shrink:0}
 
   /* ═══ CREAM SECTION ═══ */
   .cream{background:var(--cream);color:var(--ink);position:relative;padding:clamp(80px,10vw,150px) 0;}
@@ -275,14 +276,14 @@
 <!-- ═══════════ CLIENTES ═══════════ -->
 <div class="clients">
   <div class="wrap">
-    <div class="cap mono">— Hemos construido para —</div>
+    <div class="cap mono">— Hemos construido sistemas para <b>empresas como la tuya</b> —</div>
     <div class="row">
-      <span class="cl">Santander</span>
-      <span class="cl">Audi España</span>
-      <span class="cl">Fuertafit</span>
-      <span class="cl">Private Equity</span>
-      <span class="cl">Jairo Fitness</span>
-      <span class="cl">Sangi Footwear</span>
+      <span class="cl">Santander</span><span class="sep"></span>
+      <span class="cl">Audi España</span><span class="sep"></span>
+      <span class="cl">Fuertafit</span><span class="sep"></span>
+      <span class="cl">Private Equity</span><span class="sep"></span>
+      <span class="cl">Jairo Fitness</span><span class="sep"></span>
+      <span class="cl">Sangi Footwear</span><span class="sep"></span>
       <span class="cl">Bidfuse</span>
     </div>
   </div>
