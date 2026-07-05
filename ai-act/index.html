@@ -226,6 +226,17 @@
     .hero-row{flex-direction:column;align-items:flex-start;}
     .tcell .badge{position:static;display:inline-block;margin-bottom:14px;}
   }
+
+  /* ═══ RECURSOS ═══ */
+  .recursos{background:#0E0F15;border-top:1px solid var(--line-d);padding:clamp(70px,9vw,120px) 0;}
+  .rc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:44px;}
+  .rc{border:1px solid var(--line-d);padding:28px 26px 30px;display:block;background:var(--black);transition:border .25s,transform .25s;}
+  .rc:hover{border-color:var(--blue);transform:translateY(-3px);}
+  .rc .rn{font-family:'Roboto Mono',monospace;font-size:11px;color:var(--blue);letter-spacing:.16em;}
+  .rc h3{font-weight:800;font-size:18px;line-height:1.3;margin-top:14px;color:#fff;}
+  .rc p{font-size:14px;line-height:1.55;color:var(--mut-d);margin-top:10px;}
+  .rc .go{font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--gray);margin-top:18px;display:block;text-transform:uppercase;transition:color .25s;}
+  .rc:hover .go{color:var(--blue);}
   @media (prefers-reduced-motion: reduce){
     .ticker-inner{animation:none;}
     .js .rv{opacity:1;transform:none;transition:none;}
@@ -449,6 +460,35 @@
         <p>Te presentamos el informe: exposición total, brechas priorizadas y roadmap. Qué hacer, para cuándo y qué pasa si no. Tú decides.</p>
         <div class="t mono">→ Sin compromiso</div>
       </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ RECURSOS (dark) ═══════════ -->
+<section class="dark recursos">
+  <div class="wrap">
+    <div class="sec-tag mono rv"><span class="n" style="color:var(--blue)">[07]</span> Otros recursos interesantes</div>
+    <h2 class="rv">Empieza gratis:<br>las <span class="br">[guías]</span> que deberías leer esta semana.</h2>
+    <div class="rc-grid rv rv2">
+      <a class="rc" href="recursos/checklist-ai-act-7-preguntas/">
+        <span class="rn mono">[R·01] · CHECKLIST</span>
+        <h3>Checklist AI Act: 7 preguntas que tu empresa debe poder responder hoy</h3>
+        <p>La herramienta de diagnóstico: dónde está el trabajo hecho y dónde quedan huecos reales antes de agosto.</p>
+        <span class="go">Leer la guía →</span>
+      </a>
+      <a class="rc" href="recursos/articulo-4-plan-formacion/">
+        <span class="rn mono">[R·02] · GUÍA COMPLETA</span>
+        <h3>Artículo 4: cómo montar el plan de formación obligatorio antes del 2 de agosto</h3>
+        <p>Qué exige la ley, las 7 competencias, el modelo de 3 niveles, los 4 documentos de evidencia y cómo bonificarlo con FUNDAE.</p>
+        <span class="go">Leer la guía →</span>
+      </a>
+      <a class="rc" href="recursos/cumplimiento-vivo/">
+        <span class="rn mono">[R·03] · ESTRATEGIA</span>
+        <h3>El AI Act no se cumple una vez: mantenlo al día sin rehacerlo todo</h3>
+        <p>Cómo diseñar un cumplimiento que sobrevive a cambios de normativa, herramientas y procesos.</p>
+        <span class="go">Leer la guía →</span>
+      </a>
     </div>
   </div>
 </section>

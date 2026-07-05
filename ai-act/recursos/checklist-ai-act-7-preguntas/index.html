@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Checklist AI Act: 7 preguntas que tu empresa debe poder responder hoy — The AI Business</title>
+<meta name="theme-color" content="#0B0B0F">
+<meta name="description" content="Checklist de diagnóstico del AI Act: siete preguntas para saber si tu empresa cumple el Artículo 4 antes del 2 de agosto de 2026 — y dónde están los huecos reales.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--black:#0B0B0F;--ink:#111116;--cream:#EFEDE3;--cream2:#E6E4D8;--white:#FFFFFF;--gray:#D7D9E6;
+    --mut:#7A7C88;--mut-d:#8B8D96;--red:#FA4D4D;--blue:#5A70FA;--line-d:#22232B;--line-l:#D6D3C4;
+    --grad:linear-gradient(100deg,#FA4D4D,#5A70FA);}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{background:var(--black);color:var(--white);font-family:'Inter',-apple-system,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  ::selection{background:var(--blue);color:#fff;}
+  .mono{font-family:'Roboto Mono',monospace;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 clamp(20px,4vw,56px);}
+  a{color:inherit;text-decoration:none;}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+    padding:18px clamp(20px,4vw,56px);transition:background .3s,border .3s;}
+  nav.scrolled{background:rgba(11,11,15,.88);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-d);}
+  .logo-img img{height:20px;width:auto;display:block;}
+  .nav-back{font-family:'Roboto Mono',monospace;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    border:1px solid var(--blue);color:#fff;padding:11px 20px;transition:background .25s;}
+  .nav-back:hover{background:var(--blue);}
+  .hero{padding:150px 0 70px;position:relative;overflow:hidden;}
+  .hero-glow{position:absolute;width:760px;height:760px;border-radius:50%;filter:blur(140px);opacity:.2;pointer-events:none;background:var(--blue);right:-260px;top:-260px;}
+  .tag{font-family:'Roboto Mono',monospace;font-size:12px;letter-spacing:.18em;color:var(--blue);text-transform:uppercase;}
+  .tag .n{color:var(--mut-d);}
+  h1{font-weight:900;font-size:clamp(32px,5.4vw,68px);line-height:1.02;letter-spacing:-.025em;text-transform:uppercase;margin-top:24px;max-width:980px;}
+  h1 .br{color:var(--blue);} h1 .rd{color:var(--red);}
+  .hero-meta{display:flex;gap:26px;flex-wrap:wrap;margin-top:30px;font-family:'Roboto Mono',monospace;font-size:11px;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--mut-d);}
+  .hero-meta b{color:var(--gray);font-weight:500;}
+  .lede{max-width:720px;font-size:clamp(17px,1.5vw,21px);line-height:1.55;color:var(--gray);margin-top:30px;font-weight:500;}
+  .lede b{color:#fff;}
+  article{background:var(--cream);color:var(--ink);padding:clamp(64px,8vw,110px) 0;}
+  .art{max-width:760px;margin:0 auto;padding:0 clamp(20px,4vw,56px);}
+  .art p{font-size:17.5px;line-height:1.7;color:#2A2B33;margin:0 0 22px;}
+  .art p b{color:var(--ink);}
+  .art h2{font-weight:900;font-size:clamp(24px,3vw,34px);line-height:1.12;letter-spacing:-.02em;text-transform:uppercase;margin:54px 0 20px;}
+  .art h2 .br{color:var(--blue);} .art h2 .rd{color:var(--red);}
+  .art h3{font-weight:800;font-size:20px;line-height:1.25;margin:36px 0 12px;}
+  .art h3 .q{color:var(--blue);font-family:'Roboto Mono',monospace;font-weight:700;font-size:14px;letter-spacing:.1em;display:block;margin-bottom:6px;}
+  .art ul,.art ol{margin:0 0 22px 22px;}
+  .art li{font-size:17px;line-height:1.65;color:#2A2B33;margin-bottom:10px;}
+  .art li b{color:var(--ink);}
+  .have{border-left:3px solid var(--blue);background:#E9E7DA;padding:16px 20px;margin:0 0 26px;}
+  .have p{margin:0;font-size:16px;}
+  .have .cap{font-family:'Roboto Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:6px;}
+  .warn{border-left:3px solid var(--red);background:#EDE3DB;padding:16px 20px;margin:0 0 26px;}
+  .warn p{margin:0;font-size:16px;}
+  .tbl{overflow-x:auto;margin:0 0 26px;border:1px solid var(--line-l);}
+  table{border-collapse:collapse;width:100%;min-width:560px;background:#F4F2E8;}
+  th{font-family:'Roboto Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink);text-align:left;padding:12px 14px;border-bottom:2px solid var(--ink);}
+  td{font-size:15px;line-height:1.5;color:#2A2B33;padding:12px 14px;border-bottom:1px solid var(--line-l);vertical-align:top;}
+  td b{color:var(--ink);} td .rd{color:var(--red);font-weight:800;} td .bl{color:var(--blue);font-weight:800;}
+  .foot-note{font-size:13px;color:var(--mut);line-height:1.6;border-top:1px solid var(--line-l);padding-top:18px;margin-top:46px;}
+  .foot-note a{color:var(--blue);}
+  .cta{background:var(--black);color:#fff;padding:clamp(70px,9vw,120px) 0;position:relative;overflow:hidden;text-align:center;}
+  .cta .hero-glow{left:-260px;right:auto;bottom:-300px;top:auto;background:var(--red);opacity:.14;}
+  .cta h2{font-weight:900;font-size:clamp(30px,4.6vw,56px);line-height:1;letter-spacing:-.025em;text-transform:uppercase;}
+  .cta h2 .rd{color:var(--red);}
+  .cta .sub{max-width:640px;margin:24px auto 0;font-size:17px;line-height:1.6;color:var(--gray);}
+  .btn{display:inline-flex;align-items:center;gap:14px;background:var(--blue);color:#fff;font-weight:800;font-size:15px;
+    letter-spacing:.06em;text-transform:uppercase;padding:20px 36px;margin-top:36px;transition:transform .2s;position:relative;overflow:hidden;}
+  .btn::after{content:'';position:absolute;inset:0;background:var(--grad);opacity:0;transition:opacity .3s;}
+  .btn:hover::after{opacity:1;} .btn:hover{transform:translateY(-2px);}
+  .btn span,.btn b{position:relative;z-index:1;}
+  .more{background:#0E0F15;border-top:1px solid var(--line-d);padding:clamp(56px,7vw,90px) 0;}
+  .more .cap{font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut-d);margin-bottom:26px;}
+  .more-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;}
+  .rc{border:1px solid var(--line-d);padding:26px 26px 30px;display:block;transition:border .25s,transform .25s;background:var(--black);}
+  .rc:hover{border-color:var(--blue);transform:translateY(-3px);}
+  .rc .n{font-family:'Roboto Mono',monospace;font-size:11px;color:var(--blue);letter-spacing:.16em;}
+  .rc h3{font-weight:800;font-size:17.5px;line-height:1.3;margin-top:12px;color:#fff;}
+  .rc p{font-size:14px;line-height:1.55;color:var(--mut-d);margin-top:10px;}
+  .rc .go{font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--gray);margin-top:16px;display:block;text-transform:uppercase;}
+  footer{border-top:1px solid var(--line-d);padding:34px 0;}
+  footer .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+    font-family:'Roboto Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut-d);}
+  footer img{height:16px;width:auto;display:block;}
+  .js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1);}
+  .js .rv.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion: reduce){.js .rv{opacity:1;transform:none;transition:none;}}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+<nav id="nav">
+  <a href="../../" class="logo-img"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUAAAAArCAYAAAAJ1FGHAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAABQKADAAQAAAABAAAAKwAAAABH4bINAAABZGlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNi4wLjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iPgogICAgICAgICA8eG1wOkNyZWF0b3JUb29sPkFkb2JlIEltYWdlUmVhZHk8L3htcDpDcmVhdG9yVG9vbD4KICAgICAgPC9yZGY6RGVzY3JpcHRpb24+CiAgIDwvcmRmOlJERj4KPC94OnhtcG1ldGE+CgQ+9BsAABcLSURBVHgB7Z0JmBXVlcer6i3djeCKCkpGcCUalwHiiuICaDTuyxhQgTHBZNRMjBM1iSats8WJMd+4fI4LAVFBgWhwJYoiY3AlIrgryiabstos3f2Wmt//UdVUv65X9fr1gnHu+b7/u7fuPffcW+fec+6p++p1W5YhowGjAaMBowGjAaMBowGjAaMBowGjAaMBowGjAaMBowGjAaMBowGjAaMBowGjAaMBowGjAaMBowGjAaMBowGjAaMBowGjAaMBowGjAaMBowGjAaMBowGjAaMBowGjAaOBvw0N2J01TNd1HfpKt7G/nG3bmWIZRbJdeBqKecKuaafxaFyiDO1yW7ItP+FNUiq0hvLIbGxNgzDe8ReP364hm+z6g4nDVobVx5e59pVXWum6uoWF+R7Xu3ejVWvn49tt4eDeq8iVWisuddko3YX1g0zJk1yRZDQiQ2kktWbOgoK8/rajrAtIgCzYRJ8bScsiZATXQOTcwptC6C5gNX20WLOlOvTaaXwi6VXjDCV4K7Gp1tiHxtEVVAP1pfvYyJg2k7aaGK/mXPJqQEVz0OpOYxq01qBjxEVW96T26EiO+MrFsLwWwtaLsiO88k0o+tm4RQePJuAkoAkRzQYLCrnwj74UfzO8qmTpemqeLVlbZoWdqBpSU1UzYOzIx24ZNe7sdWU2a2KrrV1es3RN+mRrh92TuUTCGrV6w4tjLeuLJoaIDHqSIQ8GchxhJEe6Hr4VpMvR++owppAyOYcTvHLJmAbKcUYD4VNb0dvgg0Iu4oOx7UZ1H3AI+AbQvWwAi6mTjAWMexVpHAXXgPT3YkSD3an7MXiKPl5CfrkbzlG0UVvRx+CtQi78I7juwzlalmYYzzTGU9+yaksJ9XJUe4J9wbfAHkDrQGtvAfXS2SJkfElaFtFG97QPkDzNgZxgHdAczCNdiLxy1w7s7UOd6QD7M+T72zjsybQPc4BHUj7Ok72UtB+I23UV/d0CZBiiy0GUAzyf+p+JsRX0LpP7PBNbMrKMkzXmjDHd2Hp/kXaS3260MzKGKXFtiuuXLavu7lS59yYdt4vF2s6luw6FpywHCJ8W6u2gByhFciYy1qe5X83Rx9xzXDQn4/LXgyJ2zVmU/qkuUC2fA7ZkretJIx0g4+kNzyjwD0B9auPzKUvmI/AIfA+Rfhoz7uAamAX/i6AUyeC1Xk4Eo5E/J0a2L+dfyAz2Lu4kjXKAcpbsZa0iOa3DgDasFsQ4FenJSf0QnAHkCIMkx6kxjYd3Kve0LFgZlodvb8ovBRcA5dWHT5qD98HD8E1EXjlrwG/b5rQzHaBuVIZSTDIU7chdvQo5rnVevjiR8sNIi1qGKqoGdiEX/6FHML9dnC5U7/NGjTHY6+bgRSX57Xe0hyVsq182u5kt2L3moWEPPT98wvC1rZGVStUTfiSqLTdbI2XbjbmgE4gTJV1Kp/69ryIfnIcU1zsDRffCWUBGPBNEkYzAl6k+yp0z9ee3U74kYVD7UXkvGOQxaf19AuQEdgB9wIHgRvAdpbT5c4SjCq4BbaBRJFUL2vjHgWvBMyCOKl2TijDXAPUZRRupjOI5jvo7wEGeEEVlC4DmvDuQzo4Euq/T0Nf16EsOMZSol5y7wTEeQx2p5kDpjkAO8WAgp/sd+H+NvBfIdwrFGX17DkJe/qYSAk+iXIYjWgp+V8i1/NBuHUdRk1vcNsgbzBfzFV8vpOC24sKQay0eLcyK6Onht22fybsXu042kc/nrXSy+pDG6qoTEfbH1giU92pw867lZth6bQbU2Jrm4g3q5gGu3wVyWCqXI+gLzgG9wADwzyzk11jIQUdJcUkKyi/JFFIR1+5i2gzy2q0kvQ/MBjK+7cEh4GxwKJBRnwyeAxVH7LQNIxn4DejkS3QyK4whUBZ3TwHWZvOi45abQZzOFW3r/lsQ45PzvRL4zk82OwZ8ANRuF3AE0FzvBaSvqSDUASJPa2QE8J2fbFsbkvi1GckBSveaAznAgWAI7V5ETxXbDTLKps50gAsZ1V0lRqYI0HeAKyL4WrM4SnTVLsXLI8YY7EAHzhWP2bVSx6UTTr+GfKOVsJOW7eaq7Jw7cuzIsU+NGjcqbqEHxlFvORzl2Tr25Ew9W3awFRCxNavzo2f9SxarIjlFBopKbwC61oYmZzgfbBPyjPnUQOdPk7+Fsa/zy+CZTn4u+CXQupPzq3i+aBtFelz9FX1ewxjUZ3uTIjs5FzmWKNKaLOVcdFZ6fKDxWPJ3wt+01hj/DMoUiFwBXgdR96K99zTg0xNkfo88ReAF8ubgHS6uBUuAor+OmgNEN6dOc4DctG4qdGdFCc0mBN5QvuZD36ZXWkQdOsZJ59emE252ZMLK1TQSu+FVsm6uIZVOpI+1cl36c/dxkUQzBSVQcR71O3mH59k2rS/t6k2EHjR3nzOHj5BqEWvRK7rqAbaZA6TvFJBB+/QuY21yfirkuo5xTyWbASu5VnTYkTQY4dfT58/pq711o0lt67rUsYDg018ZZ5PzUyHXmutxZFcBnWt+QlqKaqhQ1OjTPPibnJ8KudYXaFPIqp/FXL+l8s4i7dZfBWpmVO0woGYOtYS8cnhKNG2bByklNFi+s9P10KoEB+j5LKf22WWO6z6XZA9hx9ohYbmX1NYWIq9gk8g8MogCcYCFtz+ykbwVVgY3U+lWj0zbkuTUdCbm09EY2p7+hZ9icHIaT4GOdH7aLBWhyd7OBNcylj1I25vasqY1ljoQjCCHMs6gQyyMF13VgykgyvmJV04tuOkcizxtjM0IOXql6HHQqc5Pg/iqOMBmCmnjhZzp9pq4KMCjia3U8SaR3S0Cij4qJgI+u8qxhvOlx05pOT03/zyR4O9wXpssPQ5b7un7zH9wv3I7qGYd0l5ycKBC+xE6SAAZ80XA/2JgAflF7ddLRZIaafVMoKWir58z1pOBHtk7k+SMJwA5ZK2NYUDnpDuTthdpLUetSX9uovrTOenMAMNw8lcxzmNAt0B5uVk5wGkB5lPIX4eswe1874EuWpdtT1toXc8dxy3Hdg2Ii0C0ECtdgN+grR73wkgLUSH9nLDKcspmD7uxT8KqPtvN25btWI2c3E1K7th7VmbtsjmpZOIYO5HskbOdC5D1r+XIE4+jUwbO/xwelJK2hlgxncLi1f37pMccfZN6FtCGqgjif4AekbYZEU0wTHc8AxjoQY/l3wf9wCvUvUQ6G77PSDua9Hh6H/gC/ATozPsHYB3juI0xKDpsK+n+rgZyOsWkCZ8BphdXBK8ZRz3juZ2y/UFf0AtcBY4Bs6h7mfRN+MqaW/jytBlDmyPAkWAncBkYAIJzsIzrbUJfRwfYFU3+qExtyglWQnIAWmyl6EMqKnaA+Zx9Lo+/38jwpJ3NNbyTTCdnDbn91IYnLrnvYc7yjs7nM3bCtS+c8L0J9wwr49chNdhEAz96yRL7Fc4Cc7LHiukiWgY3F0UW2kjw0wXazOcSoG8Uld9mhAG+jwHeyAB+DAYBOYmjQH9wEnidejkFfev4OWlHkXSjR0E5l13BSCBnoG9c18pJ0L+ixLaQIrTLIwTkqIt0gF7bmaT/BkYDOS3pbLCXH0L6qqezvzDmOq7j6B0YNAe61+OA7FMONTgHz3E9E3llOVZ4242+jg5Q5yBrQdx5iHZFPQpVogM9XulxoRRVbPizv1fb3clnh/ONrZ2yHV5ccScNGneVjMdKOpknczn3WsdJ9UrZ6QPstHUqxWNLDaKpnJjASfEmIGeAHHgVHoOb6lqfUfQi5xakTVyoTM5QC1yG2AND+UOZRgJ7xxD9T2cca5D+XXAi+Hsgoz4UHAwGgmnwPAjvm+Q7igi87RX08190sAM4D/QEPwOKBCdRH7dmYS1JcnCKMEvJ2FCyZaCCMeiXIo9QpKjsdHAs+BbQvB4NBgDp7An4HoJ/AfmSRL12W+l3NankHQ8OA92A5kLzIIf4DDyag3nkO40qMf5OG1yFHX1Ju9+AsEeBoEgZ6/VAO3JraRENbo5oNCeiLrIq3bBhaLKq5sBG4jVe/fvczrp/8hu8Nm7l4gHDezyTdlI8PuUSWdcdMfUfx0w58w+Xxu7Ecn68CI0ofglS8dFnYSST+fyoIKhwWfjQZiKnIkM5Acho9gH6hu9+zwi43DZE/28yjo/p/SUgYxMUgWjuvwn2FuC5Ad63yXcYIX8+/fwHHewIhgL1/QuwHjwDKiWte8kNRudBWW8FL6LyjFELZQbjfIf0BaD5lPOTs5LjOhzsD3rBcxP8y8hHEjxvwPshTDOB9C8n2g/sArRutF76wPMreN8n3yn0dXSA2ukUFWlBRJFe17gSVOIA9ZvX+MgrqveQumWja7usX7NhBN/WptI239vms9OXWe/O91lrrdr8tMSdE3lrY7idz3UhCjw8k0lpYf7Z5wlLq3kSrdfbKZwDury9oxtvA02h7fSQ9hIro9gIzgN7AOl3KlgLiikYqciBCuVQkE/RRVnEfGmTmIGBvU6q8R8FhoITgKLXM8Eq6q+AN27zhLVyQv5c+rkRCXImGsfBQC9KS09ZUAlJ74qgtP7bhZCliPJJxjWLVM5qIDgZHAHkwEeAT6jX+5WxcwGPbPJ5+F8j1RzIEeqxehCoAeeAldT/FN5G8h1OTof3sG060Nfqer2hJNo4rKARtlHU1uYb16w6vMrJH+3mM7y0nOFAOjvhgsmTCd220pebrTfcXObNFCNI2/kaftcxcvbo2amtHOE5PUzrFRidAcb/TDpchleqv9qi1yCKsY4yOZc7gO9ADiG/r9euOJGhZrzCBKmcQSRhGGkYFGn61GpjZ4z6ayavIuBOICf0KPCN9zzyfUCHE2N4mU5uAvO8zuQIbwC9vOtKkg6xZ8a6FjzPgG4F0tkr3uC06ckJBufEqyqdIGuDd/+3wSV5TwLNgcZ/IWiLDmhePnWIwsrvvsM47Q6T3EGC3eNrk+l8fkTayneVledyjXNxgtp5m9EFky/fwC9CJuLM8nKUSdsasrD+LT1CRJIcn16B4eXqSL4yKuN0+wEyfAeoJ4zdSshcSfkar04O/LASfMHi3lz08ArkyRd4+dAEh9kXHBJWiQHKkcsR3g788e5AvpTDDhPT1jJF7v8JPvEEnUJ6gJffJgn6GgD2CuscfdUBjXlcoH5v8t0D182yyDoQHNSs0LtAVgPQGr8D+JuhHon7eCwdnnxdHWCHK669O1iy0yd9k3b+1LxefLZz+VQ+98CAyTfrXMhiAfEedCH6KXSbrql+3MplFiQ510s79i6O5QyjPtIxyfk5OD+HtCbbJieonTqK9qRSPlwkXj2ahZEe994IVOgedg9cN8tSJyc5HOjRS7QCvF3IFX3Aq3cTj6dYEdUvye9XxBK8lJxcoEDRaKcQxi/9/BH8FiwHssdq0OmEjrqAs+m4FvyE/K4Rg1gWqNOYW+iM9ikwmLpfg+vIRzk13XtwXbWQR32HkHZoQ63XgF4yK1d3+iOuwclt0RuV9sq8c2Eqkd+tHlvMZBsXNKbSj4uRfhTxfBfsTP5VUv1tuaXTL7ptCo/B1zbkGi2+LT730eF3ahddBEKI3wKzRvUnEBOcb/NdcAhP2UW69zBnKwe1F7gM6JtikaI8P7opFPgf3APf4bgTuZaRyOgHAhneONL51Dc5JcrkGE8BI4Df95/IrwBhpLGMBhcCydmIjHtJ9dMtP9qTbvXYLaPX+ZNoM1hQyHXSB+PRt64P0N1O4BovraR36UWOv5x1qSOi4Bms+lP0q/6PBOuA/q7mBNIPQubiTMp9kvPSWWExaRP8EdC5ns7zJG8M6VzkNZAWiDL1ey7QnInqwOJCrhM+ylFWJwzjb64LRTlXlDnqSfAFd8wWzTadcWHPlJM/X9/SpnlNhfhsysEP3/qZxygjvhp0BXOAoqDljpWZ6OadSx070T1lpXvnneqzKP9v0ILkXXI8Ahe+3OO3wG38Fvg0xPVp0cmWM7zDKFe9SF72ESADKUXTqHgKyADkhH4IegO9dCvnplBVjkFyTwVysKK3wT1BwyyUbv1QO/GojQzsIqA50wG8HPImsB3Q0YH06Ucc/0te9Z1K3Iecw910uiO4EvgbSGvGofWhzafJwUc0nk7dO0X10onK+gGNQ+t7fzCTsS0hzQDpUl+AyKn59BiZ9f5FIBW/5mAI0EajzasXmIG8T0m12WjMOqLQ/CiSFL0AFhVynfDxVXSA2snaQr4iy5ER7CuYj2srQ7whjsmrf4U00gHmndyZNXZqX/5klZW3c6sSeWsibeRARCcBLRzRCaAnWP7x+x++t2/fA5+tdhLDMvyUElzy6CX3P3jO+BGrxRgk/RSu3uVHdQQHrsO3wL7kIFN0PqgbOYymHdxrpnr5WRmOSEb4HLgL486qIIyoW4Mx/IY6GcKJQO3l8HWfiipyQGV7An+tziWvNvNAKKlP5N5LpQzvEqD2Q8G3gTYWGZ+cjOZRPCIZ/6203VC4iv8I6iSMW/U+j5+G8RXK6FcvRGsDk8MfBfyIqFBf4iMoV19EKIIrZ3a1Rpo5QPrXK0s3Uy49nw3k7M4DxwJtYoriVNYbVAH1MxPcR9viaJLN1m5E3l3Ua6ORg+sBtCEdCTQHWiOq6+2lJIUNXn8tRvPTKeQvqk7pLKITGdR6r77cBRgUlwm0l5xyFoF46gLtio2aqmYUHKMq/KihGVNrL9zTT+++yc1f6uQzddWObW3I1Y/d87F9tXP6NJ5MX7AzmAYKEcplf70nM+OA3/+Ws8DjXDvfrdqp2tt1N59F/RjQjJyqTD5V76zPuQleLuR50M7JsZRLvp78qET37eeDMiRzPpgDHgf6S9gynEiCZzaG8n2YTgMXgP5gdw8kBZKxvAumAm0OH9Euco6p1yst/w7v02A4OBn8HTgY+CTnrDFL7jjwHoii4BqIW6eSvQ7ISSnfwklQ1oykL8Z8HYWfg+tBnBOUU/LthmxTFKV8FGlMLYj+9Y7i1VQ8CqSzQaAH0Hz4JB1ojieBh2mzkDSUqNMrLTdSqShf8oaAXkBr2Sfp5kPwGLjfy5N0Dn1VHKAU9CnQol5bwa2/TJuLvPYylnJ2EDnNnwIZsxbEPBBFepx7E0QaXoiAj0LKthZVV9enG7LXNyb4bx2Efol6522b9/22MhSc3lKutcPL8JsW/BeZ9e91T3cbmbCS1Rk36zjp5IJAu6ZsZklitbuLfanFfwTR35PpWp97v6kyPrMJln8CivBKkfQnB7gGrAJ6T1LtyiJ4P8NQJsD8Etgb7ANkJHK2ut8l4AOwFF5FhmURvDr7ewXmReABoI2kJ9DjttbIMiBdLII31lnD568BspaiqCjSXGhNirRmFPXEEuNQJHgHjHKwuucomkWlv+6j+IJ1mqu5wYJgnv4VlT9LmTaD3mB/sCtIA41pMdBm9Bm8cTpQJLgBeX+BX/Z9PzgAyKn6c6C1LXlL4F1B2qkkZWxzQkEOg9BiF+ndPe0KZVNReyldzi2WaKcNwNeBvqwIOp5m7eHV+DTO1pL+s1dJp0mF/d5B56cOrP6UbH/LJrIr7sC7PydMLzN4fabb/j0L91D30XL3hBdrQ3V39+i7U1uCKw6K7ukPT+kxhfRP21jSPcZ+4RMnhXuVock4lOq+dD+bufdyNjVYw8nToeTKkWve5bAlU/8ZruT8UN9ERWsgcp3Cq7GrH58i14HP5Ke01wag/1Sop5RQ8u7Jt5tQnhKFkWvdb+PdrwIE6azNc+GN15encWtuFbCUPQfwGjIaMBowGjAaMBowGjAaMBowGjAaMBowGjAaMBowGjAaMBowGjAaMBowGjAaMBowGjAaMBowGjAaMBowGjAaMBowGjAaMBowGjAaMBowGjAaMBowGjAaMBowGjAaMBowGvh/qYH/A3Og1OsrEoBOAAAAAElFTkSuQmCC" alt="The AI Business"></a>
+  <a href="../../#diagnostico" class="nav-back">Diagnóstico 72h →</a>
+</nav>
+
+<header class="hero">
+  <div class="hero-glow"></div>
+  <div class="wrap" style="position:relative;z-index:2">
+    <div class="tag mono rv"><span class="n">[RECURSO 01]</span> AI Act · Reglamento (UE) 2024/1689</div>
+    <h1 class="rv">Checklist AI Act: <span class="br">7 preguntas</span> que tu empresa debe poder responder <span class="rd">hoy</span></h1>
+    <div class="hero-meta rv"><span>Lectura: <b>5 min</b></span><span>The AI Business</span><span>Julio 2026</span></div>
+    <p class="lede rv">El reglamento europeo de IA no exige un curso. Exige que puedas <b>demostrar</b> que tu equipo entiende la IA que usa — qué puede hacer, qué no puede hacer y qué riesgos implica. Estas siete preguntas te dicen si lo tienes o solo lo crees.</p>
+  </div>
+</header>
+
+<article>
+  <div class="art">
+
+    <p class="rv">El Artículo 4 del Reglamento (UE) 2024/1689 establece algo más concreto de lo que parece: no basta con que tus empleados usen sistemas de IA. Tu organización tiene que poder <b>demostrar que entienden lo que usan</b> — qué puede hacer, qué no, y qué consecuencias tiene confiar en su resultado sin criterio propio. A partir del <b>2 de agosto de 2026</b>, la AESIA (la Agencia Española de Supervisión de la Inteligencia Artificial) puede verificar ese cumplimiento con plenas competencias.</p>
+    <p class="rv">La pregunta que más escuchamos ya no es «¿qué dice la ley?». Es: <b>«¿cómo sé si lo que tenemos es suficiente?»</b> Este checklist sirve exactamente para eso: siete preguntas que revelan dónde está el trabajo hecho y dónde quedan huecos reales.</p>
+
+    <h2 class="rv">Las <span class="br">7 preguntas</span></h2>
+
+    <h3 class="rv"><span class="q">[01]</span>¿Tenéis un inventario de los sistemas de IA que usa la empresa?</h3>
+    <p class="rv">La obligación afecta a quienes <b>despliegan</b> sistemas de IA, no solo a quienes los desarrollan. Eso incluye cualquier herramienta que use tu equipo: asistentes de escritura, análisis predictivo, herramientas de contratación con IA, generadores de contenido — también las que usan por su cuenta sin que IT lo sepa. Sin inventario no puedes saber quién necesita formarse ni en qué.</p>
+    <div class="have rv"><span class="cap">Lo que deberías tener</span><p>Un registro actualizado de qué sistemas de IA están en uso, en qué departamentos y para qué funciones. Una hoja de cálculo sirve. Lo que no sirve es no tenerlo.</p></div>
+
+    <h3 class="rv"><span class="q">[02]</span>¿Sabéis a qué nivel de riesgo pertenece cada sistema?</h3>
+    <p class="rv">El reglamento clasifica los sistemas en cuatro categorías: <b>riesgo inaceptable</b> (prohibidos), <b>alto riesgo</b>, <b>riesgo limitado</b> y <b>riesgo mínimo</b>. Las exigencias crecen con la categoría — y los sistemas que tocan selección de personal, crédito, acceso a servicios o infraestructura crítica suelen caer en alto riesgo.</p>
+    <div class="have rv"><span class="cap">Lo que deberías tener</span><p>Una clasificación básica de cada sistema del inventario. Para los de alto riesgo, la exigencia de competencia documentada — y el tipo de formación — es mayor.</p></div>
+
+    <h3 class="rv"><span class="q">[03]</span>¿Habéis definido quiénes deben formarse y a qué profundidad?</h3>
+    <p class="rv">«Alfabetización suficiente» no significa lo mismo para todos. El técnico que integra un modelo, el comercial que usa una herramienta de análisis y el manager que decide sobre recomendaciones automatizadas necesitan niveles distintos. <b>Formar a toda la plantilla con el mismo módulo genérico cubre la obligación en papel, no en sustancia.</b></p>
+    <div class="have rv"><span class="cap">Lo que deberías tener</span><p>Una matriz de roles y competencias: para cada perfil, qué debe entender de los sistemas que usa y con qué detalle.</p></div>
+
+    <h3 class="rv"><span class="q">[04]</span>¿La formación cubre capacidades, limitaciones y riesgos — no solo instrucciones de uso?</h3>
+    <p class="rv">Aquí es donde la mayoría se queda corta sin saberlo. La norma pide que la gente entienda tres dimensiones: qué puede hacer el sistema, <b>qué no puede hacer</b> y qué riesgos implica usarlo. Un onboarding de herramienta («cómo iniciar sesión, cómo consultar») no cubre la dimensión crítica: cuándo se equivoca, qué sesgos arrastra, qué pasa si te fías a ciegas.</p>
+    <div class="have rv"><span class="cap">Lo que deberías tener</span><p>Contenido formativo con, como mínimo, un bloque de limitaciones conocidas y otro de riesgos de mal uso o sobreconfianza por cada sistema.</p></div>
+
+    <h3 class="rv"><span class="q">[05]</span>¿Tenéis registros que demuestren quién se formó, cuándo y con qué resultado?</h3>
+    <p class="rv">Tener un sistema de formación no es lo mismo que tener <b>evidencia lista para auditoría</b>. En una inspección no se audita la plataforma — se audita la persona. «María García, de operaciones, completó el módulo de alfabetización en IA el 15 de mayo con un 85%» es evidencia. «Tenemos un curso en la intranet» no lo es. Un PDF enviado por email tampoco genera registro.</p>
+    <div class="have rv"><span class="cap">Lo que deberías tener</span><p>Registros individualizados por empleado, módulo, fecha y resultado, generados automáticamente y exportables en un formato que soporte auditoría.</p></div>
+
+    <h3 class="rv"><span class="q">[06]</span>¿Está previsto revisar la formación cuando cambien las herramientas o la norma?</h3>
+    <p class="rv">El reglamento entiende la alfabetización como una <b>competencia continua</b>, no un certificado puntual. Las herramientas se actualizan, las guías de aplicación se publican de forma progresiva y tu catálogo de sistemas cambiará. Una formación diseñada una sola vez para cumplir en agosto puede quedar obsoleta antes de fin de año.</p>
+    <div class="have rv"><span class="cap">Lo que deberías tener</span><p>Un mecanismo de revisión periódica — mínimo anual — y un proceso claro para actualizar módulos cuando entra o cambia un sistema de IA.</p></div>
+
+    <h3 class="rv"><span class="q">[07]</span>¿Podríais responder todo esto ante una inspección hoy mismo?</h3>
+    <p class="rv">No dentro de tres meses. <b>Hoy.</b> Esta pregunta revela si el cumplimiento está hecho o solo planificado. Si el inventario, la clasificación, la matriz de roles, los registros o el plan de actualización existen solo como intención, el cumplimiento no está completo.</p>
+    <div class="warn rv"><p><b>La AESIA no evalúa planes. Evalúa evidencias.</b></p></div>
+
+    <h2 class="rv">Del checklist <span class="br">al plan de acción</span></h2>
+    <p class="rv">Siete preguntas. En la mayoría de organizaciones, dos o tres quedan sin respuesta sólida. Eso no es un fracaso — <b>es un diagnóstico útil</b>. El orden del trabajo importa: primero el inventario (sin él no puedes hacer nada), después la clasificación de riesgo, después la matriz de roles, y desde ahí la formación con trazabilidad desde el primer módulo.</p>
+    <p class="rv">Lo que no funciona es tratarlo como un proyecto para «después del verano». <b>La fecha límite es este verano.</b> Si quieres el diagnóstico completo hecho por nosotros — inventario, clasificación, exposición en euros y roadmap — lo tienes en 72 horas.</p>
+
+    <h2 class="rv">Preguntas frecuentes</h2>
+    <h3 class="rv">¿El Artículo 4 obliga solo a quien desarrolla IA?</h3>
+    <p class="rv">No. Aplica a cualquier organización que <b>use</b> sistemas de IA en su actividad: si tu empresa usa una herramienta de IA para selección de personal, análisis de clientes o gestión operativa, te aplica.</p>
+    <h3 class="rv">¿Qué pasa si no cumplo antes del 2 de agosto de 2026?</h3>
+    <p class="rv">La AESIA puede abrir procedimientos de supervisión. Las sanciones por infringir las obligaciones aplicables a operadores llegan a <b>15 millones de euros o el 3%</b> de la facturación global anual — y el techo general del reglamento, para las infracciones más graves, alcanza los <b>35 millones o el 7%</b>.</p>
+    <h3 class="rv">¿Un curso genérico de «IA para todos» cumple?</h3>
+    <p class="rv">En la mayoría de casos, no. La formación debe ser proporcional al rol y a los sistemas concretos que usa cada empleado. Un módulo introductorio puede ser el punto de partida — no el punto final.</p>
+
+    <div class="foot-note">Fuentes: Reglamento (UE) 2024/1689 (<a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX%3A32024R1689" target="_blank" rel="noopener">texto oficial</a>) · <a href="https://artificialintelligenceact.eu/es/" target="_blank" rel="noopener">artificialintelligenceact.eu</a> · AESIA (aesia.es). Este contenido es divulgativo y no constituye asesoramiento jurídico.</div>
+  </div>
+</article>
+
+<section class="cta">
+  <div class="hero-glow"></div>
+  <div class="wrap" style="position:relative;z-index:2">
+    <h2 class="rv">¿Te han quedado preguntas<br>sin responder? <span class="rd">Nosotros las cerramos.</span></h2>
+    <p class="sub rv">Diagnóstico de exposición al AI Act en 72 horas: inventario, clasificación de riesgo, tu exposición en euros y el plan para cerrarla. Sin compromiso.</p>
+    <a class="btn rv" href="../../#diagnostico"><span>Reservar mi diagnóstico</span><b>→</b></a>
+  </div>
+</section>
+
+<section class="more">
+  <div class="wrap">
+    <div class="cap rv">— Otros recursos interesantes</div>
+    <div class="more-grid">
+      <a class="rc rv" href="../articulo-4-plan-formacion/"><span class="n mono">[R·02]</span><h3>Artículo 4: el plan de formación obligatorio antes del 2 de agosto</h3><p>Qué exige la ley, las 7 competencias, el modelo de 3 niveles, los 4 documentos y cómo bonificarlo con FUNDAE.</p><span class="go">Leer →</span></a>
+      <a class="rc rv" href="../cumplimiento-vivo/"><span class="n mono">[R·03]</span><h3>El AI Act no se cumple una vez: mantenlo al día sin rehacerlo todo</h3><p>Cómo diseñar un cumplimiento que sobrevive a cambios de normativa, herramientas y procesos.</p><span class="go">Leer →</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="data:image/png;base64,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" alt="The AI Business">
+    <span>MIAMI · SPAIN · DUBAI</span>
+    <span>AI ACT · REGLAMENTO (UE) 2024/1689</span>
+  </div>
+</footer>
+
+<script>
+try{
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+    document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  }else{document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));}
+}catch(e){document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));}
+try{
+  const nav=document.getElementById('nav');
+  addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+}catch(e){}
+</script>
+</body>
+</html>
