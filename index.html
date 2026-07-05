@@ -330,8 +330,8 @@
     transition:opacity .85s cubic-bezier(.2,.65,.2,1),transform .85s cubic-bezier(.2,.65,.2,1),clip-path .9s cubic-bezier(.2,.65,.2,1)}
 
   /* titulares: wipe lateral con clip */
-  .js section:not(.sin) h2{opacity:0;clip-path:inset(0 100% 0 0);transform:translateX(-14px)}
-  .js section.sin h2{opacity:1;clip-path:inset(0 0 0 0);transform:none}
+  .js section:not(.sin) h2:not(.scrub){opacity:0;clip-path:inset(0 100% 0 0);transform:translateX(-14px)}
+  .js section.sin h2:not(.scrub){opacity:1;clip-path:inset(0 0 0 0);transform:none}
   .js section:not(.sin) .sec-tag{opacity:0;transform:translateX(-24px)}
   .js section.sin .sec-tag{opacity:1;transform:none;transition-delay:.05s}
   .js section:not(.sin) .sub{opacity:0;transform:translateY(18px)}
@@ -357,8 +357,7 @@
   .js .curtain{position:relative;overflow:hidden}
   .js .curtain::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:var(--black);transform:scaleX(1);transform-origin:right;transition:transform 1.1s cubic-bezier(.7,0,.2,1) .25s;z-index:2}
   .js section.sin .curtain::after{transform:scaleX(0)}
-  .js .curtain img{transform:scale(1.12);transition:transform 1.4s cubic-bezier(.2,.65,.2,1) .25s}
-  .js section.sin .curtain img{transform:scale(1)}
+  
 
   /* servicios: filas en cascada */
   .js section:not(.sin) .svc-row{opacity:0;transform:translateY(40px)}
@@ -449,6 +448,29 @@
     #prog{display:none}
   }
 
+
+  /* ═══ APPLE-STYLE: color journey + scrub ═══ */
+  body{background:#0B0B0F}
+  .js .hero,.js .comply,.js section.dark,.js section.cream,.js .final{background:transparent!important}
+  .js .comply{background:linear-gradient(100deg,rgba(250,77,77,.07),rgba(90,112,250,.09))!important}
+
+  /* titulares que se encienden palabra a palabra con el scroll */
+  h2.scrub .w{color:rgba(255,255,255,.14);transition:color .3s ease}
+  h2.scrub .w.on{color:inherit}
+
+  /* shimmer del gradiente del hero */
+  @keyframes shimmer{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+  .grad-live{background:linear-gradient(100deg,#FA4D4D,#B24DFA,#5A70FA,#FA4D4D);background-size:250% 100%;
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 6s ease-in-out infinite}
+
+  /* imagen problema pegada al scroll */
+  .js .curtain img{will-change:transform}
+
+  @media (prefers-reduced-motion: reduce){
+    h2.scrub .w{color:inherit!important}
+    .grad-live{animation:none}
+  }
+
 </style>
 </head>
 <body>
@@ -465,12 +487,12 @@
 </nav>
 
 <!-- ══════ HERO ══════ -->
-<header class="hero">
+<header class="hero" data-bg="11,11,15">
   <canvas id="net"></canvas>
   <div class="hero-fade"></div>
   <div class="wrap" style="position:relative;z-index:2">
     <div class="tag mono in"><span class="n">[01]</span> Consultancy · Tech Lab · Creativity on overdrive</div>
-    <h1 class="in">Creamos los sistemas de IA que tus competidores <span class="br">[desearían]</span> tener.<br><span style="background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">Y que cumplen la ley.</span></h1>
+    <h1 class="in">Creamos los sistemas de IA que tus competidores <span class="br">[desearían]</span> tener.<br><span class="grad-live">Y que cumplen la ley.</span></h1>
     <p class="hero-sub in">Automatización, agentes de IA y software a medida que reducen costes e impulsan ingresos. Entregado en semanas, no en trimestres. Y con lo que nadie más firma: <b style="color:#fff">cumplimos GDPR y AI Act por contrato.</b></p>
     <div class="badges in">
       <span class="badge law"><span class="ok">✓</span> <b>GDPR</b>&nbsp;por contrato</span>
@@ -494,7 +516,7 @@
 </header>
 
 <!-- ══════ COMPLIANCE STRIP ══════ -->
-<section class="comply">
+<section class="comply" data-bg="17,11,26">
   <div class="wrap">
     <h3 >Cumplimos <span class="br">GDPR y AI Act</span> — y lo firmamos en el contrato.</h3>
     <div class="items">
@@ -506,7 +528,7 @@
 </section>
 
 <!-- ══════ NUEVO SERVICIO: AI ACT ══════ -->
-<section class="dark" style="padding:clamp(60px,7vw,100px) 0">
+<section class="dark" data-bg="26,11,16" style="padding:clamp(60px,7vw,100px) 0">
   <div class="wrap">
     <div style="border:1px solid var(--line-d);background:linear-gradient(135deg,rgba(250,77,77,.08),rgba(90,112,250,.1));padding:clamp(30px,4vw,54px);display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(24px,4vw,60px);align-items:center" class="aiact-band">
       <div>
@@ -526,7 +548,7 @@
 <section class="dark">
   <div class="wrap">
     <div class="sec-tag mono"><span class="n">[02]</span> El coste de no actuar</div>
-    <h2 >Tu equipo está pagando cada mes por trabajo que la IA <span class="rd">ya hace mejor.</span></h2>
+    <h2 class="scrub">Tu equipo está pagando cada mes por trabajo que la IA <span class="rd">ya hace mejor.</span></h2>
     <p class="sub">No es una teoría: es tu nómina haciendo tareas de un script. Cada mes que pasa es margen que regalas.</p>
     <div class="curtain" style="margin-top:36px"><img src="assets/img/problema-oficina.jpg" alt="Trabajo manual que la IA elimina" loading="lazy" style="width:100%;display:block;border:1px solid var(--line-d)"></div>
   </div>
@@ -538,11 +560,11 @@
 </section>
 
 <!-- ══════ SERVICIOS ══════ -->
-<section class="cream" id="servicios"><div class="leak tr"></div>
+<section class="cream" id="servicios" data-bg="10,14,26"><div class="leak tr"></div>
   <div class="grid-lines"><i></i><i></i><i></i><i></i></div>
   <div class="wrap" style="position:relative;z-index:2">
     <div class="sec-tag mono"><span class="n">[03]</span> Servicios</div>
-    <h2 >De la estrategia a la ejecución. Todo lo que tu próximo proyecto necesita <span class="br">[para vender más]</span>.</h2>
+    <h2 class="scrub">De la estrategia a la ejecución. Todo lo que tu próximo proyecto necesita <span class="br">[para vender más]</span>.</h2>
     <div class="svc">
       <div class="svc-row">
         <div class="id">01</div>
@@ -585,7 +607,7 @@
 </section>
 
 <!-- ══════ PROYECTOS (NUEVO) ══════ -->
-<section class="dark" id="proyectos"><div class="leak bl"></div>
+<section class="dark" id="proyectos" data-bg="11,11,15"><div class="leak bl"></div>
   <div class="wrap">
     <div class="sec-tag mono"><span class="n">[04]</span> Proyectos</div>
     <h2 >Resultados reales, con nombre <span class="br">[y número]</span>.</h2>
@@ -653,7 +675,7 @@
 </section>
 
 <!-- ══════ EVENTOS (MEJORADO CON FOTOS) ══════ -->
-<section class="dark" id="eventos">
+<section class="dark" id="eventos" data-bg="11,11,15">
   <div class="wrap">
     <div class="sec-tag mono"><span class="n">[06]</span> Autoridad y presencia</div>
     <h2 >No hablamos de IA desde fuera. Estamos donde se toman <span class="br">[las decisiones]</span>.</h2>
@@ -695,7 +717,7 @@
 </section>
 
 <!-- ══════ TESTIMONIOS ══════ -->
-<section class="cream" id="testimonios"><div class="leak br"></div>
+<section class="cream" id="testimonios" data-bg="10,15,22"><div class="leak br"></div>
   <div class="grid-lines"><i></i><i></i><i></i><i></i></div>
   <div class="wrap" style="position:relative;z-index:2">
     <div class="sec-tag mono"><span class="n">[07]</span> Testimonios</div>
@@ -725,7 +747,7 @@
 </section>
 
 <!-- ══════ HERRAMIENTAS (SERIAS) ══════ -->
-<section class="dark" id="stack">
+<section class="dark" id="stack" data-bg="11,11,15">
   <div class="wrap">
     <div class="sec-tag mono"><span class="n">[08]</span> Stack tecnológico</div>
     <h2 >Herramientas de grado <span class="br">[enterprise]</span>. Nada de juguetes.</h2>
@@ -749,7 +771,7 @@
 </section>
 
 <!-- ══════ EQUIPO ══════ -->
-<section class="cream" id="equipo"><div class="leak tr"></div>
+<section class="cream" id="equipo" data-bg="16,11,18"><div class="leak tr"></div>
   <div class="grid-lines"><i></i><i></i><i></i><i></i></div>
   <div class="wrap" style="position:relative;z-index:2">
     <div class="sec-tag mono"><span class="n">[09]</span> El equipo</div>
@@ -765,7 +787,7 @@
 </section>
 
 <!-- ══════ FAQ ══════ -->
-<section class="dark" id="faq">
+<section class="dark" id="faq" data-bg="11,11,15">
   <div class="wrap">
     <div class="sec-tag mono"><span class="n">[10]</span> Respuestas</div>
     <h2 >Preguntas <span class="br">frecuentes.</span></h2>
@@ -782,7 +804,7 @@
 </section>
 
 <!-- ══════ CTA FINAL ══════ -->
-<section class="final">
+<section class="final" data-bg="18,10,14">
   <div class="bgimg" style="position:absolute;top:0;left:0;right:0;bottom:0;background-image:url('assets/img/cta-boardroom.jpg');background-size:cover;background-position:center top;opacity:.4"></div>
   <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(11,11,15,.55),rgba(11,11,15,.96) 75%)"></div>
   <div class="glow"></div>
@@ -839,17 +861,71 @@ try{
   }else{secs.forEach(s=>s.classList.add('sin'));}
 }catch(e){document.querySelectorAll('section,.comply,.final').forEach(s=>s.classList.add('sin'));}
 
-// barra de progreso + parallax de glows
+// ═══ motor de scroll: color journey + scrub + parallax ═══
 try{
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const prog=document.getElementById('prog'),leaks=document.querySelectorAll('.leak');
+
+  // 1) viaje de color de fondo entre secciones (estilo Apple)
+  const anchors=[...document.querySelectorAll('[data-bg]')].map(el=>({el,rgb:el.dataset.bg.split(',').map(Number)}));
+  const lerp=(a,b,t)=>a+(b-a)*t;
+
+  // 2) titulares palabra a palabra
+  const scrubs=[...document.querySelectorAll('h2.scrub')].map(el=>{
+    const walker=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);
+    const nodes=[];let n;while(n=walker.nextNode()){if(n.textContent.trim())nodes.push(n);}
+    nodes.forEach(node=>{
+      const frag=document.createDocumentFragment();
+      node.textContent.split(/(\s+)/).forEach(t=>{
+        if(!t)return;
+        if(/^\s+$/.test(t)){frag.appendChild(document.createTextNode(t));return;}
+        const s=document.createElement('span');s.className='w';s.textContent=t;frag.appendChild(s);
+      });
+      node.parentNode.replaceChild(frag,node);
+    });
+    return {el,words:[...el.querySelectorAll('.w')]};
+  });
+
+  const curtImg=document.querySelector('.curtain img');
   let tick=false;
   const upd=()=>{
     tick=false;
-    const max=document.documentElement.scrollHeight-innerHeight;
+    const vh=innerHeight,max=document.documentElement.scrollHeight-vh;
     if(prog&&max>0)prog.style.width=(scrollY/max*100)+'%';
-    leaks.forEach(l=>{const r=l.parentElement.getBoundingClientRect();l.style.marginTop=(r.top*-.07)+'px';});
+
+    // color journey
+    if(anchors.length&&!reduced){
+      const probe=scrollY+vh*.38;let i=0;
+      for(let k=0;k<anchors.length;k++){const top=anchors[k].el.offsetTop;if(top<=probe)i=k;else break;}
+      const a=anchors[i],b=anchors[Math.min(i+1,anchors.length-1)];
+      const span=Math.max(1,b.el.offsetTop-a.el.offsetTop);
+      const t=a===b?0:Math.min(1,Math.max(0,(probe-a.el.offsetTop)/span));
+      const rgb=a.rgb.map((v,k)=>Math.round(lerp(v,b.rgb[k],t)));
+      document.body.style.backgroundColor=`rgb(${rgb[0]},${rgb[1]},${rgb[2]})`;
+    }
+
+    // scrub de palabras
+    scrubs.forEach(({el,words})=>{
+      const r=el.getBoundingClientRect();
+      const p=Math.min(1,Math.max(0,(vh*.82-r.top)/(vh*.55)));
+      const onCount=Math.round(p*words.length);
+      words.forEach((w,idx)=>w.classList.toggle('on',idx<onCount));
+    });
+
+    // imagen problema pegada al scroll
+    if(curtImg&&!reduced){
+      const r=curtImg.parentElement.getBoundingClientRect();
+      if(r.bottom>0&&r.top<vh){
+        const p=(vh-r.top)/(vh+r.height);
+        curtImg.style.transform=`scale(${1.14-p*.14}) translateY(${(p-.5)*-26}px)`;
+      }
+    }
+
+    // parallax de glows
+    if(!reduced)leaks.forEach(l=>{const r=l.parentElement.getBoundingClientRect();l.style.marginTop=(r.top*-.07)+'px';});
   };
   addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(upd);}},{passive:true});
+  addEventListener('resize',upd);
   upd();
 }catch(e){}
 
