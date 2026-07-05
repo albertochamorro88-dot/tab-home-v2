@@ -229,6 +229,10 @@
 
   /* ═══ RECURSOS ═══ */
   .recursos{background:#0E0F15;border-top:1px solid var(--line-d);padding:clamp(70px,9vw,120px) 0;}
+  .recursos h2{max-width:1080px;}
+  .rec-sub{max-width:640px;font-size:clamp(16px,1.4vw,19px);line-height:1.6;color:var(--gray);margin-top:28px;}
+  .rec-row{display:flex;align-items:center;gap:28px;flex-wrap:wrap;margin-top:38px;}
+  .rec-meta{font-size:11px;letter-spacing:.18em;color:var(--mut-d);text-transform:uppercase;}
   .rc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:44px;}
   .rc{border:1px solid var(--line-d);padding:28px 26px 30px;display:block;background:var(--black);transition:border .25s,transform .25s;}
   .rc:hover{border-color:var(--blue);transform:translateY(-3px);}
@@ -468,27 +472,12 @@
 <!-- ═══════════ RECURSOS (dark) ═══════════ -->
 <section class="dark recursos">
   <div class="wrap">
-    <div class="sec-tag mono rv"><span class="n" style="color:var(--blue)">[07]</span> Otros recursos interesantes</div>
-    <h2 class="rv">Empieza gratis:<br>las <span class="br">[guías]</span> que deberías leer esta semana.</h2>
-    <div class="rc-grid rv rv2">
-      <a class="rc" href="recursos/checklist-ai-act-7-preguntas/">
-        <span class="rn mono">[R·01] · CHECKLIST</span>
-        <h3>Checklist AI Act: 7 preguntas que tu empresa debe poder responder hoy</h3>
-        <p>La herramienta de diagnóstico: dónde está el trabajo hecho y dónde quedan huecos reales antes de agosto.</p>
-        <span class="go">Leer la guía →</span>
-      </a>
-      <a class="rc" href="recursos/articulo-4-plan-formacion/">
-        <span class="rn mono">[R·02] · GUÍA COMPLETA</span>
-        <h3>Artículo 4: cómo montar el plan de formación obligatorio antes del 2 de agosto</h3>
-        <p>Qué exige la ley, las 7 competencias, el modelo de 3 niveles, los 4 documentos de evidencia y cómo bonificarlo con FUNDAE.</p>
-        <span class="go">Leer la guía →</span>
-      </a>
-      <a class="rc" href="recursos/cumplimiento-vivo/">
-        <span class="rn mono">[R·03] · ESTRATEGIA</span>
-        <h3>El AI Act no se cumple una vez: mantenlo al día sin rehacerlo todo</h3>
-        <p>Cómo diseñar un cumplimiento que sobrevive a cambios de normativa, herramientas y procesos.</p>
-        <span class="go">Leer la guía →</span>
-      </a>
+    <div class="sec-tag mono rv"><span class="n" style="color:var(--blue)">[07]</span> Recurso gratuito</div>
+    <h2 class="rv">Cómo preparar a tu empresa para el AI Act y evitar sanciones de hasta <span class="rd">35M€.</span></h2>
+    <p class="rec-sub rv rv2">El vídeo con lo esencial + las 3 guías prácticas: el checklist de 7 preguntas, el plan de formación del Artículo 4 paso a paso y cómo mantener el cumplimiento vivo. Gratis, sin registro.</p>
+    <div class="rec-row rv rv3">
+      <a class="btn" href="recursos/"><span>Ver el recurso</span><b class="arr">→</b></a>
+      <span class="rec-meta mono">1 VÍDEO · 3 GUÍAS · 20 MIN DE LECTURA</span>
     </div>
   </div>
 </section>
